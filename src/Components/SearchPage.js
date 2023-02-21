@@ -400,7 +400,7 @@ const SearchPage = (/* {pageLoad} */) => {
                                     
 
                                   </div>
-                                  <div className="concertListImage">
+                                  <div className="myListImage">
                                     <img src={image} alt={`Poster of ${name}`} />
                                   </div>
                                 </li>

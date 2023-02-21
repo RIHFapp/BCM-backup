@@ -170,12 +170,12 @@ useEffect(() => {
                                     className="fBListInView"
                                     key={index}
                                     >
-                                      <p>{name}</p>
-                                      <p>{eventDate}</p>
-                                      <p>{venueCity}</p>
-                                      <p>{venueName}</p>
-                                      <p>${maxPrice}CAD x {numberOfTickets}</p>
-                                      <p>${maxPrice * numberOfTickets.toFixed(2)}CAD</p>
+                                      <p><span className="moblieTags">Name:</span> {name}</p>
+                                      <p><span className="moblieTags">Date:</span> {eventDate}</p>
+                                      <p><span className="moblieTags">City:</span> {venueCity}</p>
+                                      <p><span className="moblieTags">Venue:</span> {venueName}</p>
+                                      <p><span className="moblieTags">Price:</span> ${maxPrice}CAD x {numberOfTickets}</p>
+                                      <p><span className="moblieTags">Total:</span> ${maxPrice * numberOfTickets.toFixed(2)}CAD</p>
                                     </motion.li>
                                   ))}
                                 

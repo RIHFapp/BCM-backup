@@ -7,6 +7,15 @@
   .wrapper {
     width: 80%;
   }
+  h1,
+  h2,
+  h3{
+    width: 100%;
+    text-align: center;
+  }
+  .concertListImage{
+    width: 225px;
+  }
   //home page p1
   .home{
     position: absolute;
@@ -32,12 +41,7 @@
       h3{
         width: 60%;
       }
-  h1,
-  h2,
-  h3{
-    width: 100%;
-    text-align: center;
-  }
+  
 
   .listOfTheListsContainer{
     margin-top: 100px;
@@ -46,7 +50,6 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        width: 80%;
         .smallImage{
             flex-basis: 45%;
             margin: 1%;
@@ -66,38 +69,63 @@
       }
 
     //styling for the List of the Lists Component:
-    .listOfTheListsContainer {
-      ul {
-        .fairBaseList {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-      }
-      p{
-        line-height: 25px;
-        text-align: start;
-      }
-    }
-    .viewDetaliedList {
-      .listTags{
-          display: none;
-      }
-      .fBListInView{
-        align-items: flex-start;
-        span{
-          display: block;
-        }
-      }
-      .fireBaseList{
-        align-items: flex-start;
-        flex-wrap: wrap;
-      }
-      p{
-        line-height: 25px;
-        text-align: start;
-      }
-    }
 }
+.viewDetaliedList {
+  padding: 3%;
+  h3{
+    font-size: 2rem;
+  }
+  li{
+    flex-wrap: wrap;
+    span{
+      display: block;
+    }
+  }
+  .listTags{
+      display: none;
+  }
+  .moblieTags{
+    display: block;
+  }
+  .fBListInView{
+    align-items: flex-start;
+    span{
+      display: block;
+    }
+  }
+  .fireBaseList{
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  p{
+    line-height: 25px;
+    text-align: start;
+    width: auto;
+  }
+  .progressBar{
+    progress{
+      width: 90%;
+    }
+  } 
+}
+.userBudgetInfo{
+  h2{
+    font-size: 2.2rem;
+  }
+}
+  .listOfTheListsContainer {
+    .fairBaseList {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+    p{
+      line-height: 25px;
+      text-align: start;
+    }
+    button{
+      padding: 3%;
+    }
+  }
 }
 
 /* Landscape phone to portrait tablet */
@@ -189,14 +217,6 @@
             width: 100%;
             text-align: center;
         }
-          .concertListImage{
-              width: 22%;
-              height: 13rem;
-              img{
-                max-width: 100%;
-                max-height: 100%;
-              }
-          }
   }
     }
 
@@ -208,6 +228,9 @@
 @media (max-width: 480px) {
   .wrapper{
     width: 78%;
+  }
+  .listOfTheListsContainer{
+    margin-top: 60px;
   }
 }
 

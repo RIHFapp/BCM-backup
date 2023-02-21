@@ -243,26 +243,29 @@ const SearchPage = (/* {pageLoad} */) => {
           >
           <section >
             <div className="inputSection wrapper">
-              <h2>Create Your List!</h2>
+              <h2>Lets Start Planning!</h2>
               <form action="submit">
                 {/* name of the list input */}
-                <label htmlFor="newName"></label>
-                <input
-                  type="text"
-                  id="newName"
-                  placeholder="Name Of Your List" 
-                  maxlength="16"
-                  />
-                
-                {/* user's budget input */}
-                <label htmlFor="newBudget"></label>
-                <input
-                  type="text"
-                  id="newBudget"
-                  placeholder="Your Budget" 
-                  maxlength="7"
-                  />
+                <p>Name your list and set up your budget</p>
+                <div className="searchInput">
+                  <label htmlFor="newName"></label>
+                  <input
+                    type="text"
+                    id="newName"
+                    placeholder="Name Of Your List" 
+                    maxlength="16"
+                    />
+                  
+                  {/* user's budget input */}
+                  <label htmlFor="newBudget"></label>
+                  <input
+                    type="text"
+                    id="newBudget"
+                    placeholder="Your Budget" 
+                    maxlength="7"
+                    />
                 <div>
+                </div> 
                   <button onClick={handleListConfig}>
                     Add List Name and Budget
                   </button>

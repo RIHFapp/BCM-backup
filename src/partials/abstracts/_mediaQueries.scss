@@ -7,6 +7,12 @@
   .wrapper {
     width: 80%;
   }
+  h1,
+  h2,
+  h3{
+    width: 100%;
+    text-align: center;
+  }
   //home page p1
   .home{
     position: absolute;
@@ -32,12 +38,7 @@
       h3{
         width: 60%;
       }
-  h1,
-  h2,
-  h3{
-    width: 100%;
-    text-align: center;
-  }
+  
 
   .listOfTheListsContainer{
     margin-top: 100px;
@@ -86,6 +87,11 @@
         text-align: start;
       }
     }
+}
+.userBudgetInfo{
+  h2{
+    font-size: 2.2rem;
+  }
 }
   .listOfTheListsContainer {
     .fairBaseList {

@@ -257,14 +257,9 @@ const ListWithKeys = () => {
             }).catch((error) => {
                 console.log(error)
             })
-
-
             setTicker(0);
-            console.log(ticker)
         }
     }, [ticker, displayTicket])
-
-    console.log(ticker)
 
     return (
         <>

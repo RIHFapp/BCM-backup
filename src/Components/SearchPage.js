@@ -38,7 +38,6 @@ const SearchPage = (/* {pageLoad} */) => {
   useEffect(() => {
     const loadPage = async() => {
       await new Promise ((event) => {
-        console.log(event);
         setTimeout(()=> {setPageLoad(false)}, 2000); 
       });
     }
@@ -139,8 +138,6 @@ const SearchPage = (/* {pageLoad} */) => {
     }
     setAddedList([...addedList, concertData]);
     setDisplayTicket(Array.from({ length: (addedList.length + 1) }, () => 1))
-    console.log(displayTicket)
-    // setLink(`/listOfLists`);
   }
 
   //When pressed Submit - the information gets sent to Firebase

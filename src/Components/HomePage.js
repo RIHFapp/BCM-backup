@@ -7,8 +7,6 @@ import { Link} from "react-router-dom";
 
 import { useState , useEffect} from "react";
 import Loading from "./Loading";
-// import SearchPage from "./SearchPage";
-// import ListWithKeys from "./ListWithKeys";
 import * as React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -36,12 +34,8 @@ const item = {
   
 
 const Homepage = (props) => {
-  // const [userInput, setUserInput] = useState('');
-
-  // const handleChangeInputChange = (e) => {
-  //   setUserInput(e.target.value)
-  // }
-   const [pageLoad, setPageLoad] = useState(true);
+ 
+const [pageLoad, setPageLoad] = useState(true);
 
   useEffect(() => {
     const loadPage = async() => {
@@ -64,9 +58,6 @@ const Homepage = (props) => {
           exit={{ opacity: 0, scale: 0.9 }}
           transition={{duration:0.6}}
           className="header"
-          // initial={{ opacity: 0 }}
-          // animate={{ opacity: 1 }}
-          // transition={{duration:2}}
           >
           <motion.section 
           className="home"
@@ -95,24 +86,6 @@ const Homepage = (props) => {
           </motion.li>
           ))}
           </motion.ul>
-                  {/* <ul
-                    className="container layingShapes"
-                    
-                  >
-                    {[0, 1, 2, 3].map((key) => (
-                  <motion.li key={key} className="item" data-index={key}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1}}
-                    transition={{ duration: 0.5, delay: 2 }}
-
-                  >
-                    {key === 0 && <img src={ticket} alt="ticket"/>}
-                    {key === 1 && <img src={music} alt="music"/>}
-                    {key === 2 && <img src={piggy} alt="piggy"/>}
-                    {key === 3 && <img src={crowd} alt="crowd"/>}
-                  </motion.li>
-                ))}
-                  </ul> */}
           <section className="enterID">
           <motion.form action="submit" 
           // initial={{ opacity: 0 }}
@@ -133,28 +106,6 @@ const Homepage = (props) => {
               <button>Create Your Budget List!</button>
             </Link>
           {/* commment up to prvent bugs */}
-          {/* <div className="editList">
-            
-            <label htmlFor="yourID">Enter Your Key Here:</label>
-            <input
-                type="text"
-                id="yourID"
-                placeholder="UUID" 
-                onChange={handleChangeInputChange}
-                value={userInput}
-            />             
-            {
-            userInput===""? null :
-            <Link
-               to={`/listWithKeys/:${userInput}`}
-               onClick={()=> {pageLoad && <Loading />}}
-            >
-              <button>
-                Edit your list
-              </button>
-            </Link>
-            }
-            </div>            */}
 
            </div>
           </motion.form>
@@ -169,34 +120,3 @@ const Homepage = (props) => {
 }
 
 export default Homepage;
-
-
-  //firebase testing
-   //firebase config
-  // const [name, setName] = useState('');
-  // const[budget, setBudget] = useState('');
-  
-
-  // const handleRemove = (bookId) => {
-  //   const database = getDatabase(firebase);
-  //   const dbRef = ref(database, `${bookId}`);
-  //   remove(dbRef);
-  // }
-  
-  // useEffect( () => {
-  //   const database = getDatabase(firebase);
-  //   const dbRef = ref(database);
-  //   onValue(dbRef, (reponse)=>{
-  //     const data = reponse.val();
-  //     const newName = [];
-  //     for (let key in data) {
-  //       newName.push(
-  //         {key:key, 
-  //           name: data[key]
-  //         }
-  //       );        
-  //     }    
-  //     setName(newName);    
-  //   });
-  
-  // },[]); 

@@ -43,14 +43,6 @@ const checkoutTheData = (name, budget, concerts)=> {
     setListOfConcerts(concerts);
 }
 
-//function summing up the prices of the tickets
-// const sumOfPrices = (arrayOfConcerts) => {
-//     let totalPrice = 0
-//         for (let price of arrayOfConcerts) {
-//         totalPrice += price.maxPrice
-//         }
-//         return totalPrice.toFixed(2)
-// }
 //getting the data from Firebase
 useEffect(() => {
 
@@ -175,7 +167,6 @@ useEffect(() => {
                                       <p><span className="moblieTags">Total:</span> ${maxPrice * numberOfTickets.toFixed(2)} CAD</p>
                                     </motion.li>
                                   ))}
-                                
                               </div>
                             )
                         } else {

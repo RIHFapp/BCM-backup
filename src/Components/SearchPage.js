@@ -266,20 +266,21 @@ const SearchPage = (/* {pageLoad} */) => {
         <section>
           <form className="searchForm wrapper">
             <p>Search for concerts by artist and your preferred city</p>
-              <label htmlFor="artist"></label>
-              <input 
-                  className="artistSearch"
-                  id="artist"
-                  placeholder="Artist..."
-              />
+              <div className="searchInput">
+                <label htmlFor="artist"></label>
+                <input 
+                    className="artistSearch"
+                    id="artist"
+                    placeholder="Artist..."
+                />
 
-              <label htmlFor="city"></label>
-              <input 
-                  className="citySearch"
-                  id="city"
-                  placeholder="City..."
-              />
-
+                <label htmlFor="city"></label>
+                <input 
+                    className="citySearch"
+                    id="city"
+                    placeholder="City..."
+                />
+            </div>
               <fieldset>
                 <label htmlFor="displayPricedConcerts">
                   Click to show only priced concerts

@@ -150,11 +150,11 @@ const ListWithKeys = () => {
 
     // Price Range Info 
     const priceRanges = [
-        { label: 'Concert cost $1000+', minPrice: 1001, maxPrice: Infinity, className: 'listItem3' },
-        { label: 'Concert cost below $1000', minPrice: 751, maxPrice: 1000, className: 'listItem3' },
-        { label: 'Concert cost below $750', minPrice: 501, maxPrice: 750, className: 'listItem2' },
-        { label: 'Concert cost below $500', minPrice: 251, maxPrice: 500, className: 'listItem1' },
-        { label: 'Concert cost below $250', minPrice: 0, maxPrice: 250, className: 'listItem0' },
+        { label: 'Ticket 1000+ CAD', minPrice: 1001, maxPrice: Infinity, className: 'listItem3' },
+        { label: 'Ticket below 1000 CAD', minPrice: 751, maxPrice: 1000, className: 'listItem3' },
+        { label: 'Ticket below 750 CAD', minPrice: 501, maxPrice: 750, className: 'listItem2' },
+        { label: 'Ticket below 500 CAD', minPrice: 251, maxPrice: 500, className: 'listItem1' },
+        { label: 'Ticket below 250 CAD', minPrice: 0, maxPrice: 250, className: 'listItem0' },
     ];
 
     // Filtered Concert 
@@ -280,12 +280,12 @@ const ListWithKeys = () => {
                         >
                             <h2>{nameOfTheList}</h2>
                             <div className="listHeading">
-                                <h3>Concert ${totalTicketPrice.toFixed(2)}CAD </h3>
+                                <h3>Concert {totalTicketPrice.toFixed(2)} CAD </h3>
                                 <div className="progressBar">
                                     <h3>vs</h3>
                                     <progress value={totalTicketPrice.toFixed(2)} max={budgetValue}></progress>
                                 </div>
-                                <h3>Budget ${budgetValue}CAD</h3>
+                                <h3>Budget {budgetValue} CAD</h3>
                             </div>
                             <ul>
                                 <li className="listTags inView">
@@ -318,8 +318,8 @@ const ListWithKeys = () => {
                                                         <p>{eventDate}</p>
                                                         <p>{venueCity}</p>
                                                         <p>{venueName}</p>
-                                                        <p>{maxPrice} x {displayTicket[key]}</p>
-                                                        <p>${(maxPrice * displayTicket[key]).toFixed(2)}</p>
+                                                        <p>{maxPrice} CAD x {displayTicket[key]}</p>
+                                                        <p>{`${(maxPrice * displayTicket[key]).toFixed(2)} CAD`}</p>
 
                                                         <div className="listButtons">
                                                             <button onClick={() => handleClickPlus(key)}> + </button>

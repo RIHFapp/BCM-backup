@@ -341,7 +341,7 @@ const SearchPage = (/* {pageLoad} */) => {
                               <p> {eventDate} </p>
                               <p> {venueCity} </p>
                               <p> {venueName} </p>
-                              <span><p>${maxPrice}</p></span>
+                              <span><p>{maxPrice} CAD</p></span>
                             </div>
                             <div className="concertListImage">
                               <img src ={concertImg} alt={`${name} concert poster`}></img>
@@ -373,7 +373,7 @@ const SearchPage = (/* {pageLoad} */) => {
                             <p>{eventDate}</p>
                             <p>{venueCity}</p>
                             <p>{venueName}</p>
-                            <span><p>${totalPrice.toFixed(2)}CAD</p></span>
+                            <span><p>{totalPrice.toFixed(2)} CAD</p></span>
                           </div>
                           <div className="ticketNumber">
 

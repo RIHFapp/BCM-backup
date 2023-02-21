@@ -106,20 +106,17 @@ useEffect(() => {
 }, [ID]) 
 
         const priceRanges = [
-            { label: 'Concert cost $1000+', minPrice: 1001, maxPrice: Infinity, className: 'listItem3'},
-            { label: 'Concert cost below $1000', minPrice: 751, maxPrice: 1000 , className: 'listItem3' },
-            { label: 'Concert cost below $750', minPrice: 501, maxPrice: 750, className: 'listItem2' },
-            { label: 'Concert cost below $500', minPrice: 251, maxPrice: 500, className: 'listItem1' },
-            { label: 'Concert cost below $250', minPrice: 0, maxPrice: 250, className: 'listItem0' },
+            { label: 'Ticket  1000+ CAD', minPrice: 1001, maxPrice: Infinity, className: 'listItem3'},
+            { label: 'Ticket below 1000 CAD', minPrice: 751, maxPrice: 1000 , className: 'listItem3' },
+            { label: 'Ticket  below 750 CAD', minPrice: 501, maxPrice: 750, className: 'listItem2' },
+            { label: 'Ticket  below 500 CAD', minPrice: 251, maxPrice: 500, className: 'listItem1' },
+            { label: 'Ticket below 250 CAD', minPrice: 0, maxPrice: 250, className: 'listItem0' },
         ];
         const filteredConcerts = priceRanges.map(({label, minPrice, maxPrice}) => ({
             label,
             concerts: listOfConcerts.filter(concert => concert.maxPrice >= minPrice && concert.maxPrice <= maxPrice)
         }));
 
-
-        // const sumTotal = amount =>{
-        // }
 
     return(
         <>
@@ -136,12 +133,12 @@ useEffect(() => {
                         <h2>{nameOfTheList}</h2>
                         
                         <div className="listHeading">
-                            <h3>Total Cost ${totalTicketPrice.toFixed(2)}CAD </h3>
+                            <h3>Total Cost {totalTicketPrice.toFixed(2)} CAD </h3>
                             <div className="progressBar">
                                 <h3>vs</h3>
                                 <progress value={totalTicketPrice} max={budgetValue}></progress>
                             </div>
-                            <h3>Budget$ {budgetValue}CAD</h3>
+                            <h3>Budget {budgetValue} CAD</h3>
                         </div>
                         
                         <ul> 
@@ -174,8 +171,8 @@ useEffect(() => {
                                       <p><span className="moblieTags">Date:</span> {eventDate}</p>
                                       <p><span className="moblieTags">City:</span> {venueCity}</p>
                                       <p><span className="moblieTags">Venue:</span> {venueName}</p>
-                                      <p><span className="moblieTags">Price:</span> ${maxPrice}CAD x {numberOfTickets}</p>
-                                      <p><span className="moblieTags">Total:</span> ${maxPrice * numberOfTickets.toFixed(2)}CAD</p>
+                                      <p><span className="moblieTags">Price:</span> {maxPrice} CAD x {numberOfTickets}</p>
+                                      <p><span className="moblieTags">Total:</span> ${maxPrice * numberOfTickets.toFixed(2)} CAD</p>
                                     </motion.li>
                                   ))}
                                 

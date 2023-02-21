@@ -1,12 +1,14 @@
+//imported libraries
 import firebase from "../firebase";
+import Loading from "./Loading";
+
+//imported hooks
 import {ref, getDatabase, onValue} from "firebase/database"; 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Loading from "./Loading";
-
 import { AnimatePresence, motion } from "framer-motion";
 
-const ListOfTheLists = (props) => {
+const ListOfTheLists = () => {
 
    const [lists, setLists] = useState([]);
    const [concertSum, setConcertSum] = useState([])
@@ -112,10 +114,10 @@ useEffect( () => {
                               >
                                  <div className="fairBaseList">
                                  <p><span>List: </span>{listname}</p>
-                                 <p><span>Budget: </span>${userBudget} CAD</p>
+                                 <p><span>Budget: </span>{userBudget} CAD</p>
                                  <p></p>
 
-                                 <p><span>Total Cost:</span> ${concertSum[key]} CAD</p>
+                                 <p><span>Total Cost:</span> {concertSum[key]} CAD</p>
                                  <p><span>Total concerts:</span> {concertCount[key]}</p>
                                  <p><span>Created on:</span> {formattedDateTime}</p>
 
@@ -131,12 +133,6 @@ useEffect( () => {
                                        </button>
                                  </Link>
                                  </div>
-                                 {/* <p>Tickets under $500: {priceUnder500.map(concert => `${concert.name.substr(0, 10)}... ($${concert.maxPrice})`).join(', ')}</p>
-                                 <p>Tickets $300-$1000 : {priceUnder1000.map(concert => `${concert.name.substr(0, 10)}... ($${concert.maxPrice})`).join(', ')}</p> */}
-                                 
-                                 
-
-                              
                               </motion.li>
                               )
                            })

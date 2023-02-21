@@ -4,7 +4,6 @@ import axios from "axios";
 import firebase from "../firebase";
 import { ref, getDatabase, push } from "firebase/database"; 
 import { v4 as uuidv4 } from "uuid";
-// import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
 import Loading from "./Loading";
@@ -36,7 +35,6 @@ const SearchPage = (/* {pageLoad} */) => {
   useEffect(() => {
     const loadPage = async() => {
       await new Promise ((event) => {
-        console.log(event);
         setTimeout(()=> {setPageLoad(false)}, 2000); 
       });
     }
@@ -137,8 +135,6 @@ const SearchPage = (/* {pageLoad} */) => {
     }
     setAddedList([...addedList, concertData]);
     setDisplayTicket(Array.from({ length: (addedList.length + 1) }, () => 1))
-    console.log(displayTicket)
-    // setLink(`/listOfLists`);
   }
 
   //When pressed Submit - the information gets sent to Firebase
@@ -332,7 +328,7 @@ const SearchPage = (/* {pageLoad} */) => {
                             <p> {eventDate} </p>
                             <p> {venueCity} </p>
                             <p> {venueName} </p>
-                            <span><p>{maxPrice}</p></span>
+                            <span><p>{`${maxPrice} CAD`}</p></span>
                           </div>
                           <div className="concertListImage">
                             <img src ={concertImg} alt={`${name} concert poster`}></img>
@@ -364,7 +360,7 @@ const SearchPage = (/* {pageLoad} */) => {
                           <p>{eventDate}</p>
                           <p>{venueCity}</p>
                           <p>{venueName}</p>
-                          <span><p>{totalPrice.toFixed(2)}</p></span>
+                          <span><p>{`${totalPrice.toFixed(2)} CAD`}</p></span>
                         </div>
                         <div className="ticketNumber">
 

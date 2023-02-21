@@ -112,10 +112,10 @@ useEffect( () => {
                               >
                                  <div className="fairBaseList">
                                  <p><span>List: </span>{listname}</p>
-                                 <p><span>Budget: </span>${userBudget} CAD</p>
+                                 <p><span>Budget: </span>{userBudget} CAD</p>
                                  <p></p>
 
-                                 <p><span>Total Cost:</span> ${concertSum[key]} CAD</p>
+                                 <p><span>Total Cost:</span> {concertSum[key]} CAD</p>
                                  <p><span>Total concerts:</span> {concertCount[key]}</p>
                                  <p><span>Created on:</span> {formattedDateTime}</p>
 

@@ -7,8 +7,6 @@ import { Link} from "react-router-dom";
 
 import { useState , useEffect} from "react";
 import Loading from "./Loading";
-// import SearchPage from "./SearchPage";
-// import ListWithKeys from "./ListWithKeys";
 import * as React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -35,12 +33,8 @@ const item = {
 
   
 
-const Homepage = (props) => {
-  // const [userInput, setUserInput] = useState('');
-
-  // const handleChangeInputChange = (e) => {
-  //   setUserInput(e.target.value)
-  // }
+const Homepage = () => {
+ 
    const [pageLoad, setPageLoad] = useState(true);
 
   useEffect(() => {

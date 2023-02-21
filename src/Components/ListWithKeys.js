@@ -8,7 +8,6 @@ const ListWithKeys = () => {
 
 
 const {editID} = useParams();
-// console.log(editID);
 let ID = editID;
 ID = ID.replace(':', '');
 
@@ -44,16 +43,6 @@ const checkoutTheData = (name, budget, concerts)=> {
     setBudgetValue(budget);
     setListOfConcerts(concerts);
 }
-
-//function summing up the prices of tickets
-// const sumOfPrices = (arrayOfConcerts) => {
-// let totalPrice = 0
-//     for (let price of arrayOfConcerts) {
-//         totalPrice += price.maxPrice
-//         console.log(totalPrice)
-//         }
-//         return totalPrice.toFixed(2)
-// }
 
 
 useEffect( () => {
@@ -101,19 +90,13 @@ useEffect( () => {
     })  
 }, [ID])
 
-// const handleRemoveTicket = (oneConcert) => {
-//     console.log(oneConcert[0]);
-//     const database = getDatabase(firebase);
-//     const dbRef = ref(database, `/${oneConcert[0].key}`);
-//     console.log(dbRef);
-//     remove(dbRef);
-// }
+
 const priceRanges = [
-    { label: 'Concert cost $1000+', minPrice: 1001, maxPrice: Infinity, className: 'listItem3'},
-    { label: 'Concert cost below $1000', minPrice: 751, maxPrice: 1000 , className: 'listItem3' },
-    { label: 'Concert cost below $750', minPrice: 501, maxPrice: 750, className: 'listItem2' },
-    { label: 'Concert cost below $500', minPrice: 251, maxPrice: 500, className: 'listItem1' },
-    { label: 'Concert cost below $250', minPrice: 0, maxPrice: 250, className: 'listItem0' },
+    { label: 'Ticket 1000 CAD+', minPrice: 1001, maxPrice: Infinity, className: 'listItem3'},
+    { label: 'Ticket below 1000 CAD', minPrice: 751, maxPrice: 1000 , className: 'listItem3' },
+    { label: 'Ticket below 750 CAD', minPrice: 501, maxPrice: 750, className: 'listItem2' },
+    { label: 'Ticket below 500 CAD', minPrice: 251, maxPrice: 500, className: 'listItem1' },
+    { label: 'Ticket below 250 CAD', minPrice: 0, maxPrice: 250, className: 'listItem0' },
 ];
 const filteredConcerts = priceRanges.map(({label, minPrice, maxPrice}) => ({
     label,
@@ -134,12 +117,12 @@ const filteredConcerts = priceRanges.map(({label, minPrice, maxPrice}) => ({
                     >
                         <h2>{nameOfTheList}</h2>
                                 <div className="listHeading">
-                                    <h3>Concert ${totalTicketPrice}CAD </h3>
+                                    <h3>Concert {totalTicketPrice} CAD </h3>
                                     <div className="progressBar">
                                     <h3>vs</h3>
                                     <progress value={totalTicketPrice} max={budgetValue}></progress>
                                 </div>
-                                    <h3>Budget ${budgetValue}CAD</h3>
+                                    <h3>Budget {budgetValue} CAD</h3>
                                 </div>
                                 <ul> 
                                     <li className="listTags inView">
@@ -173,11 +156,10 @@ const filteredConcerts = priceRanges.map(({label, minPrice, maxPrice}) => ({
                                         <p>{eventDate}</p>
                                         <p>{venueCity}</p>
                                         <p>{venueName}</p>
-                                        <p>{maxPrice}CAD x {numberOfTickets}</p>
-                                        <p>${maxPrice * numberOfTickets}CAD</p>
+                                        <p>{maxPrice.toFixed(2)} CAD x {numberOfTickets}</p>
+                                        <p>{(maxPrice * numberOfTickets).toFixed(2)} CAD</p>
                                         <button> + </button>
                                         <button> - </button>
-                                        {/* <button onClick={()=> {handleRemoveTicket(newArray)}} > Remove Ticket </button> */}
                                         </motion.li>
                                     ))}   
                                 </div>

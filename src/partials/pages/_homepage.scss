@@ -1,0 +1,122 @@
+@use "../abstracts/variables" as*;
+
+.home{
+    margin: 0 10%;
+}
+.featured{
+    margin: 0 auto;
+    p{
+        margin: 0;
+        font-size: 2rem;
+        color: #5d6977;
+        font-weight: 700;
+        line-height: 25px;
+        text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.09);
+    }
+}
+.featured,
+.suggested{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.concertImage{
+    display: flex;
+    justify-content: center;
+    .smallImage{
+        // flex-basis: 45%;
+        margin: 1%;
+    }
+}
+
+.header{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.enterID{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+        form{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 25px;
+        background-color:rgba(255, 255, 255, 0.37);
+        backdrop-filter: blur(3px);
+        padding: 2%;
+        font-size: 1.8rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+        -webkit-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+        -moz-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+    }
+}
+.onLogin{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.editList{
+    margin-top: 10%;
+    flex-wrap: wrap;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    input{
+        margin: 3% auto;
+        width: 50%;
+        border-radius: 25px;
+        background-color: $secondColor;
+        border: none;
+        font-size: 1.5rem;
+    }
+    a{
+        margin: 0 auto;
+        padding: 5%;
+    }
+    button{
+       font-size: 1.6rem; 
+       padding: 2% 2% 2% 2%;
+       margin-top: 1%;
+       margin-bottom: 1%;
+       height: 100%;
+    }
+}
+
+.container {
+    margin-top: 2%;
+    width: 800px;
+    height: 800px;
+    display: grid;
+    overflow: hidden;
+    list-style: none;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 15px;
+    padding: 15px;
+    // background: rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+  }
+  
+  .item {
+    border-radius: 100%;
+    margin: 5% auto;
+    img{
+        width: 90%;
+        border-radius: 50%;
+    }
+    }
+    // .layingShapes{
+    // position: absolute;   
+    // }

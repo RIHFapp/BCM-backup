@@ -1,0 +1,47 @@
+@use "../abstracts/variables" as*;
+@import url('https://fonts.googleapis.com/css2?family=Maitree:wght@400;700&display=swap');
+body,
+button,
+input{
+    font-family: 'Maitree', serif;
+}
+h1,
+h2,
+h3,
+h4
+p
+{
+    text-transform: uppercase;
+    font-weight: 700;
+    text-shadow: 4px 4px 2px rgba(0,0,0,0.09);
+    color: #2E4053;
+}
+span{
+    font-weight: 700;
+}
+h1,
+h2{
+    font-size: 4.5rem;
+}
+
+h1 {
+  font-weight: bold;
+}
+h3{
+    font-size: 2rem;
+}
+
+
+// Error Page Font 
+  @font-face {
+    font-family: Shabnam;
+    src: url("https://cdn.rawgit.com/ahmedhosna95/upload/ba6564f8/fonts/Shabnam/Shabnam-Bold.eot");
+    src: url("https://cdn.rawgit.com/ahmedhosna95/upload/ba6564f8/fonts/Shabnam/Shabnam-Bold.eot?#iefix") format("embedded-opentype"), url("https://cdn.rawgit.com/ahmedhosna95/upload/ba6564f8/fonts/Shabnam/Shabnam-Bold.woff") format("woff"), url("https://cdn.rawgit.com/ahmedhosna95/upload/ba6564f8/fonts/Shabnam/Shabnam-Bold.woff2") format("woff2"), url("https://cdn.rawgit.com/ahmedhosna95/upload/ba6564f8/fonts/Shabnam/Shabnam-Bold.ttf") format("truetype");
+    font-weight: bold;
+  }
+  @font-face {
+    font-family: Shabnam;
+    src: url("https://cdn.rawgit.com/ahmedhosna95/upload/ba6564f8/fonts/Shabnam/Shabnam.eot");
+    src: url("https://cdn.rawgit.com/ahmedhosna95/upload/ba6564f8/fonts/Shabnam/Shabnam.eot?#iefix") format("embedded-opentype"), url("https://cdn.rawgit.com/ahmedhosna95/upload/ba6564f8/fonts/Shabnam/Shabnam.woff") format("woff"), url("https://cdn.rawgit.com/ahmedhosna95/upload/ba6564f8/fonts/Shabnam/Shabnam.woff2") format("woff2"), url("https://cdn.rawgit.com/ahmedhosna95/upload/ba6564f8/fonts/Shabnam/Shabnam.ttf") format("truetype");
+    font-weight: normal;
+  }

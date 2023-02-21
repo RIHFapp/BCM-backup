@@ -1,0 +1,252 @@
+@use "./variables" as*;
+
+/* Portrait tablet and small desktops */
+@media (max-width: 940px) {
+
+  // General 
+  .wrapper {
+    width: 80%;
+  }
+  //home page p1
+  .home{
+    position: absolute;
+    top: 10%;
+    text-align: center;
+    display: flex;
+    border-radius: 25px;
+    background-color:rgba(255, 255, 255, 0.37);
+    backdrop-filter: blur(3px);
+    padding: 2%;
+    flex-direction: row;    
+    // flex-wrap: wrap;   
+    box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);    
+    -webkit-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);    
+    -moz-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+  }
+  .container{
+    margin-left: 5%;
+    margin-top: 0;
+  }
+//searchForm p2
+  .searchForm {
+      h3{
+        width: 60%;
+      }
+  h1,
+  h2,
+  h3{
+    width: 100%;
+    text-align: center;
+  }
+
+  .listOfTheListsContainer{
+    margin-top: 100px;
+  }
+    .concertImage {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 80%;
+        .smallImage{
+            flex-basis: 45%;
+            margin: 1%;
+        }
+
+    }
+    // Concert Search Result Section
+      .concertImage {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          width: 80%;
+          .smallImage{
+              flex-basis: 45%;
+              margin: 1%;
+          }
+      }
+
+    //styling for the List of the Lists Component:
+    .listOfTheListsContainer {
+      ul {
+        .fairBaseList {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+      }
+      p{
+        line-height: 25px;
+        text-align: start;
+      }
+    }
+    .viewDetaliedList {
+      .listTags{
+          display: none;
+      }
+      .fBListInView{
+        align-items: flex-start;
+        span{
+          display: block;
+        }
+      }
+      .fireBaseList{
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+      p{
+        line-height: 25px;
+        text-align: start;
+      }
+    }
+}
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 768px) {
+    
+}
+
+// Style Specific Break Point 
+@media(max-width: 550px) {
+  // General 
+  h2{
+    font-size: 3.5rem
+  }
+  h3{
+    font-size: 1.9rem;
+    width: 100%;
+  }
+  //homepage p1
+  .home{
+    h1{
+      margin-top: 10%;
+    }
+    .wrapper{
+      width: auto;
+    }
+  }
+  
+  .container{
+    margin-top: 10vh;
+  }
+  
+  
+  
+  // Search Page 
+    // Budget Creation 
+    .budgetInput{
+      .inputSection{
+          form{
+              padding: 3% 1%;
+              display: flex;
+              flex-direction: column;
+            }
+            .budgetCreation{
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              width: 100%;
+              input::placeholder{
+                text-align: center;
+              }
+              input{
+                width: 90%;
+                padding: 1% 3%;
+              }
+            }
+      }
+    }
+    // Concert Search Form 
+    .searchForm{
+        padding: 3% 1%;
+      .concertSearch{
+        display: flex;
+        flex-direction: column;            
+        align-items: center;
+        input::placeholder{
+          text-align: center;
+        }
+        input{
+          width: 90%;
+          padding: 1% 3%;
+        }
+        fieldset{
+          align-items: center;
+          label{
+            width: 60vw;
+          }
+          input{
+            width: 20%;
+            display: flex;
+            justify-content: flex-end;
+          }
+        }
+      }
+    }
+    .searchResultContainer{
+      li{
+        flex-direction: column-reverse;
+        .concertListInfo{
+            width: 100%;
+            text-align: center;
+        }
+          .concertListImage{
+              width: 22%;
+              height: 13rem;
+              img{
+                max-width: 100%;
+                max-height: 100%;
+              }
+          }
+  }
+    }
+
+}
+
+
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+  .wrapper{
+    width: 78%;
+  }
+}
+
+/*Smallest Phone Screens*/
+@media (max-width: 320px) {
+
+  .listOfTheListsContainer {
+    .listButtons{
+      padding-right: 5%;
+    }
+    }
+}
+
+//@Media 
+
+@media (max-width: 1200px) {
+  //homepage p1
+  .container{
+    width: 100vw;
+    height: 90vh;
+  }
+ //list of the list p4
+  .listOfTheListsContainer {
+    a{
+      width: auto;
+      margin: 0 auto;
+    }
+    .listButtons{
+      gap: 15px;
+    }
+  }
+}
+
+@media (max-width: 380px) {
+  //list of the list p4
+  .listOfTheListsContainer {
+    li{
+      flex-direction: column;
+    }
+    }
+
+}

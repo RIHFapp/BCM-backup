@@ -1,0 +1,66 @@
+@use "../abstracts/variables" as*;
+
+html{
+   font-size: 62.5%;
+}
+
+body{
+   // background-image: url(../asset/background.png);
+   margin: 0 auto;
+}
+
+.wrapper{
+    max-width: 1300px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+img {
+   max-width: 100%;
+   height: auto;
+   display: block;
+   border-radius: 25px;
+   box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+}
+
+form{
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+   border-radius: 25px;
+   background-color:rgba(255, 255, 255, 0.37);
+   font-size: 1.8rem;
+   flex-direction: row;
+   flex-wrap: wrap;
+   box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+   -webkit-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+   -moz-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+   input{
+       margin: 1% 1%;
+       width: 48%;
+       padding: 1% 3%;
+       border-radius: 25px;
+       background-color: $thirdColor;
+       border: none;
+       color: rgb(0, 0, 0);
+       font-style: italic;
+       &:focus{
+         outline: 2px solid white;
+       }
+   }
+} 
+
+a{
+   text-decoration: none;
+}
+
+html .swal2-show{
+   font-size: 1.4rem;
+}
+
+a:focus {
+   outline: none;
+ }

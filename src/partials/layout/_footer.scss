@@ -1,0 +1,35 @@
+@use "../abstracts/variables" as*;
+@import url('https://fonts.googleapis.com/css2?family=Maitree:wght@400;700&family=Mynerve&display=swap');
+.footerStyle{
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    p {
+        font-size: 1.4rem;
+        font-family: 'Mynerve', cursive;
+   a {
+    &:hover {
+        font-weight: bold; 
+     }
+     &:focus {
+         font-weight: bold;
+     }
+   }
+    }
+
+    .Iza{
+        color: #20aa04;
+    }
+    .FS{
+        color: #0f8de0;
+    }
+    .HW{
+        color: #f3c017;
+    }
+    .RS{
+        color: #941ce4;
+    }
+}

@@ -1,0 +1,31 @@
+//abstracts
+@use "./partials/abstracts/variables";
+
+//base
+@use "./partials/base/setup";
+@use "./partials/base/defaultStyles";
+@use "./partials/base/typography";
+
+
+//components
+
+@use "./partials/components/button";
+
+//layout 
+@use "./partials/layout/nav";
+@use "./partials/layout/footer";
+@use "./partials/base/overlay";
+
+//pages 
+@use "./partials/pages/homepage";
+@use "./partials/pages/searchPage";
+@use "./partials/pages/publishList";
+@use "./partials/pages/listOfTheLists";
+@use "./partials/pages/credit";
+@use "./partials/pages/errorpage";
+@use "./partials/pages/loading";
+
+
+
+//media queries
+@use "./partials/abstracts/mediaQueries"; 

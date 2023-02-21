@@ -1,0 +1,45 @@
+@use "../abstracts/variables" as*;
+html{
+    background: rgba(152,152,220,0.38);
+    background: linear-gradient(54deg,rgba(152,152,220,0.38) 0%, #97dbe8 40%, #c0c8f0 80%);
+    background: -webkit-linear-gradient(54deg,rgba(152,152,220,0.38) 0%, #97dbe8 40%, #c0c8f0 80%);
+    background: -moz-linear-gradient(54deg,rgba(152,152,220,0.38) 0%, #97dbe8 40%, #c0c8f0 80%);
+    
+}
+.overlay{
+    // position: absolute;
+    // top: 20%;
+    // left: 35%;
+    height: 900px;
+    width: 900px;
+    background: #dbf0ef;
+    background: linear-gradient(54deg,#dbf0ef 0%, #97dbe8 40%, #c0c8f0 80%);
+    background: -webkit-linear-gradient(54deg,#dbf0ef 0%, #97dbe8 40%, #c0c8f0 80%);
+    background: -moz-linear-gradient(54deg,#dbf0ef 0%, #97dbe8 40%, #c0c8f0 80%);
+    z-index: -2;
+    border-radius: 50%;
+    transition: 'all 0.2s ease-out'; // add transition property
+    @keyframes rotate {
+        from{
+            rotate: 0deg;
+            
+        }
+
+        to{
+            rotate:360deg;
+        }
+    }
+    animation: rotate 15s infinite;
+    transform: translate(-24px,14px);
+    -webkit-transform: translate(-24px,14px);
+    -moz-transform: translate(-24px,14px);
+    
+}
+    .blur{
+    position: fixed;
+    width: 100%;
+    height: 105%;
+    backdrop-filter: blur(25px);
+    z-index: -1;
+    top: -1%;
+}

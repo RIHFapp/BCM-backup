@@ -262,7 +262,7 @@ return(
                     <Link to={`/listOfLists`}>
                         <button id="LOLButton">back</button>
                     </Link>
-                    {/* <button onClick={handleClickSave}>Save Changes</button> */}
+                    <button onClick={handleClickSave} className="sr-only">Save Changes</button>
                 </motion.section>
             </AnimatePresence>
         </>

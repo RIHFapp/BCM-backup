@@ -74,7 +74,7 @@
     font-size: 2rem;
   }
   li{
-    flex-direction: column;
+    flex-wrap: wrap;
     span{
       display: block;
     }
@@ -98,6 +98,7 @@
   p{
     line-height: 25px;
     text-align: start;
+    width: auto;
   }
   .progressBar{
     progress{

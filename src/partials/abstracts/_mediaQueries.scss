@@ -13,6 +13,9 @@
     width: 100%;
     text-align: center;
   }
+  .concertListImage{
+    width: 225px;
+  }
   //home page p1
   .home{
     position: absolute;
@@ -47,7 +50,6 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        width: 80%;
         .smallImage{
             flex-basis: 45%;
             margin: 1%;
@@ -215,14 +217,6 @@
             width: 100%;
             text-align: center;
         }
-          .concertListImage{
-              width: 22%;
-              height: 13rem;
-              img{
-                max-width: 100%;
-                max-height: 100%;
-              }
-          }
   }
     }
 

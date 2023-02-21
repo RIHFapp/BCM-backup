@@ -1,4 +1,7 @@
+//imported Hooks
 import React, { useState, useEffect } from 'react';
+
+
 const BgOverlay = () => {
    const [position, setPosition] = useState({ x: 0, y: 0 });
    

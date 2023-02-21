@@ -1,14 +1,19 @@
-//importplace holder images
+import * as React from "react";
+
+//imported libraries
+import Loading from "./Loading";
+ 
+//imported hooks
+import { useState , useEffect} from "react";
+import { Link} from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
+
+//imported  placeholder images
 import crowd from "../partials/asset/crowd.jpg";
 import music from "../partials/asset/music.JPG";
 import piggy from "../partials/asset/piggy.jpg";
 import ticket from "../partials/asset/ticket.JPG"; 
-import { Link} from "react-router-dom";
 
-import { useState , useEffect} from "react";
-import Loading from "./Loading";
-import * as React from "react";
-import { AnimatePresence, motion } from "framer-motion";
 
 
 const container = {

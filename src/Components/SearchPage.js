@@ -1,15 +1,16 @@
-//importing hooks
-import { useState, useEffect } from "react";
-import axios from "axios";
-import firebase from "../firebase";
-import { ref, getDatabase, push } from "firebase/database"; 
-import { v4 as uuidv4 } from "uuid";
-// import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-// import ErrorPage from "./ErrorPage";
+//imported libraries
 import Sorry from "./Sorry";
 import Loading from "./Loading";
 import Swal from 'sweetalert2';
+import axios from "axios";
+import firebase from "../firebase";
+
+
+//importing hooks
+import { useState, useEffect } from "react";
+import { ref, getDatabase, push } from "firebase/database"; 
+import { v4 as uuidv4 } from "uuid";
+import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 
 

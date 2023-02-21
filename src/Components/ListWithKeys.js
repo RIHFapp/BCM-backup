@@ -1,8 +1,11 @@
+//imported libraries
 import firebase from "../firebase";
+import Loading from "./Loading";
+
+//imported hooks
 import { getDatabase, ref, onValue, set, get } from "firebase/database";
 import { useEffect, useState, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
-import Loading from "./Loading";
 import { AnimatePresence, motion } from "framer-motion";
 
 

@@ -1,12 +1,14 @@
+//imported libraries
 import firebase from "../firebase";
+import Loading from "./Loading";
+
+//imported hooks
 import {ref, getDatabase, onValue} from "firebase/database"; 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Loading from "./Loading";
-
 import { AnimatePresence, motion } from "framer-motion";
 
-const ListOfTheLists = (props) => {
+const ListOfTheLists = () => {
 
    const [lists, setLists] = useState([]);
    const [concertSum, setConcertSum] = useState([])

@@ -4,9 +4,7 @@ import axios from "axios";
 import firebase from "../firebase";
 import { ref, getDatabase, push } from "firebase/database"; 
 import { v4 as uuidv4 } from "uuid";
-// import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-// import ErrorPage from "./ErrorPage";
 import Sorry from "./Sorry";
 import Loading from "./Loading";
 import Swal from 'sweetalert2';
@@ -33,8 +31,14 @@ const SearchPage = (/* {pageLoad} */) => {
   const [displayTicket, setDisplayTicket] = useState([]);
   const [eK, setEK] = useState('');
   const [link, setLink] = useState('');
+  const [budgetLoad, setBudgetLoad] = useState(false);
+  const [concertSearchAppear, setConcertSearchAppear] = useState(false);
+  const [concertResult, setConcertResult] = useState(false);
+  const [myListAppear, setMyListAppear] = useState(false);
 
+  
 
+// 
   useEffect(() => {
     const loadPage = async() => {
       await new Promise ((event) => {
@@ -45,14 +49,9 @@ const SearchPage = (/* {pageLoad} */) => {
     setTimeout(()=> {
       loadPage();
       setPageLoad(true);
+      setBudgetLoad(true);
     }, 500);
   }, [])
-
-  
-
-
-
-
 
 
   // Renders user budget information when user clicks 
@@ -60,7 +59,8 @@ const SearchPage = (/* {pageLoad} */) => {
     event.preventDefault();
     setUserListName(event.target.form[0].value);
     setBudgetInput(event.target.form[1].value);
-    
+    // setTimeout
+    setConcertSearchAppear(true);
   }
 
   // Api submit button
@@ -103,6 +103,7 @@ const SearchPage = (/* {pageLoad} */) => {
         setApiRes(list); 
         setTimeout(() => {
           setApiLoading(false);
+          setConcertResult(true);
           new Promise ((newRes) => {
               return newRes;
               })
@@ -139,8 +140,7 @@ const SearchPage = (/* {pageLoad} */) => {
     }
     setAddedList([...addedList, concertData]);
     setDisplayTicket(Array.from({ length: (addedList.length + 1) }, () => 1))
-    console.log(displayTicket)
-    // setLink(`/listOfLists`);
+    setMyListAppear(true);
   }
 
   //When pressed Submit - the information gets sent to Firebase
@@ -241,166 +241,182 @@ const SearchPage = (/* {pageLoad} */) => {
           transition={{duration:0.5}}
           exit={{ opacity: 0 }}
           >
-          <section >
-            <div className="inputSection wrapper">
-              <h2>Create Your List!</h2>
-              <form action="submit">
-                {/* name of the list input */}
-                <label htmlFor="newName"></label>
-                <input
-                  type="text"
-                  id="newName"
-                  placeholder="Name Of Your List" 
-                  maxlength="16"
-                  />
-                
-                {/* user's budget input */}
-                <label htmlFor="newBudget"></label>
-                <input
-                  type="text"
-                  id="newBudget"
-                  placeholder="Your Budget" 
-                  maxlength="7"
-                  />
-                <div>
-                  <button onClick={handleListConfig}>
-                    Add List Name and Budget
-                  </button>
-                </div>
-              </form>
-            </div>
-          </section>
-
-          <section>
-            <form className="searchForm wrapper">
-              <p>Search for concerts by artist and your preferred city</p>
-                <div className="searchInput">
-                  <label htmlFor="artist"></label>
-                  <input 
-                      className="artistSearch"
-                      id="artist"
-                      placeholder="Artist..."
-                  />
-
-                  <label htmlFor="city"></label>
-                  <input 
-                      className="citySearch"
-                      id="city"
-                      placeholder="Cities In Canada (e.g Toronto) "
-                  />
-              </div>
-                <fieldset>
-                  <label htmlFor="displayPricedConcerts">
-                    Click to show only priced concerts
-                  </label>
-                  
-                  <input
-                    id="displayPricedConcerts"
-                    className="displayPricedConcerts"
-                    name="priceChoice"
-                    type ="checkbox"
-                    value="priced"
-                  /> 
-
-                </fieldset>
-
-                <button onClick={handleSubmitConcert}>
-                  Search 
-                </button>
-            </form>
-            <div className="searchResultContainer">
-                
-                <ul className="searchResultList wrapper">
-                <h3>Upcoming concerts...</h3>
-                {!apiLoading && (
-                      apiRes.map((concertInfo)=>{
-                        const name = concertInfo.name; 
-                        const eventDate = concertInfo.dates.start.localDate;
-                        const venueCity = concertInfo._embedded.venues[0].city.name;
-                        const venueName = concertInfo._embedded.venues[0].name;
-                        let numberOfTickets = 1;
-                        const maxPrice = concertInfo.priceRanges !== undefined
-                          ? concertInfo.priceRanges[0].max
-                          : 'To be announced';
+            { 
+             <>
+             { budgetLoad && (
+                <section className="budgetSetup">
+                  <div className="inputSection wrapper">
+                    <h2>Create Your List!</h2>
+                    <form action="submit">
+                      {/* name of the list input */}
+                      <label htmlFor="newName"></label>
+                      <input
+                        type="text"
+                        id="newName"
+                        placeholder="Name Of Your List" 
+                        maxlength="16"
+                        />
                       
-                        const concertImg = concertInfo.images[3].url;
-                        const key = concertInfo.id;
-                        return (
-                      
-                          <li 
-                          key = {key}
-                          className="concertResponse wrapper">
-                            { 
-                              concertInfo.priceRanges !== undefined ? ( 
-                                <button
-                                  onClick={() => { handleAddConcert(name, eventDate, venueCity, venueName, maxPrice, concertImg, key, numberOfTickets)}}> + </button>
-                              ) : null
-                            }
-                            <div className="concertListInfo">
-                              <span><p> {name} </p></span>
-                              <p> {eventDate} </p>
-                              <p> {venueCity} </p>
-                              <p> {venueName} </p>
-                              <span><p>${maxPrice}</p></span>
-                            </div>
-                            <div className="concertListImage">
-                              <img src ={concertImg} alt={`${name} concert poster`}></img>
-                            </div>
-                          </li>
-                        )
-                    })
-                    )}
-                </ul>
-            </div>
-          </section>
+                      {/* user's budget input */}
+                      <label htmlFor="newBudget"></label>
+                      <input
+                        type="text"
+                        id="newBudget"
+                        placeholder="Your Budget" 
+                        maxlength="7"
+                        />
+                      <div>
+                        <button onClick={handleListConfig}>
+                          Add List Name and Budget
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </section>
+             )}
+              { concertSearchAppear && (
+                  <section className="concertSearch">
+                    <form className="searchForm wrapper">
+                      <p>Search for concerts by artist and your preferred city</p>
+                        <div className="searchInput">
+                          <label htmlFor="artist"></label>
+                          <input 
+                              className="artistSearch"
+                              id="artist"
+                              placeholder="Artist..."
+                          />
 
-          <section>
-            <div className="myList wrapper">
-              <div className="userBudgetInfo">
-                <h2 className="userInput"> List: {userListName} </h2>
-                <h2 className="userInput"> Budget: {userBudget} CAD</h2>
-              </div>
+                          <label htmlFor="city"></label>
+                          <input 
+                              className="citySearch"
+                              id="city"
+                              placeholder="Cities In Canada (e.g Toronto) "
+                          />
+                      </div>
+                        <fieldset>
+                          <label htmlFor="displayPricedConcerts">
+                            Click to show only priced concerts
+                          </label>
+                          
+                          <input
+                            id="displayPricedConcerts"
+                            className="displayPricedConcerts"
+                            name="priceChoice"
+                            type ="checkbox"
+                            value="priced"
+                          /> 
 
-                  <ul className="myConcert wrapper">
-                  <h3>Selected Concerts</h3>
-                    {addedList.map( (list, index) =>{
-                      const { name, eventDate, venueCity, venueName, maxPrice, image, /* numberOfTickets */ } = list;
-                      const totalPrice = maxPrice * displayTicket[index];
-                      return(
-                        <li key={index}>
-                          <div className="concertListInfo">
-                            <span><p>{name}</p></span>
-                            <p>{eventDate}</p>
-                            <p>{venueCity}</p>
-                            <p>{venueName}</p>
-                            <span><p>${totalPrice.toFixed(2)}CAD</p></span>
-                          </div>
-                          <div className="ticketNumber">
+                        </fieldset>
+
+                        <button onClick={handleSubmitConcert}>
+                          Search 
+                        </button>
+                    </form>
+                  </section>
+                )
+              }
+              { concertResult && (
+                  <section className="concertResults">
+                      <div className="searchResultContainer">
+                        
+                        <ul className="searchResultList wrapper">
+                        <h3>Upcoming concerts...</h3>
+                        {!apiLoading && (
+                              apiRes.map((concertInfo)=>{
+                                const name = concertInfo.name; 
+                                const eventDate = concertInfo.dates.start.localDate;
+                                const venueCity = concertInfo._embedded.venues[0].city.name;
+                                const venueName = concertInfo._embedded.venues[0].name;
+                                let numberOfTickets = 1;
+                                const maxPrice = concertInfo.priceRanges !== undefined
+                                  ? concertInfo.priceRanges[0].max
+                                  : 'To be announced';
+                              
+                                const concertImg = concertInfo.images[3].url;
+                                const key = concertInfo.id;
+                                return (
+                              
+                                  <li 
+                                  key = {key}
+                                  className="concertResponse wrapper">
+                                    { 
+                                      concertInfo.priceRanges !== undefined ? ( 
+                                        <button
+                                          onClick={() => { handleAddConcert(name, eventDate, venueCity, venueName, maxPrice, concertImg, key, numberOfTickets)}}> + </button>
+                                      ) : null
+                                    }
+                                    <div className="concertListInfo">
+                                      <span><p> {name} </p></span>
+                                      <p> {eventDate} </p>
+                                      <p> {venueCity} </p>
+                                      <p> {venueName} </p>
+                                      <span><p>${maxPrice}</p></span>
+                                    </div>
+                                    <div className="concertListImage">
+                                      <img src ={concertImg} alt={`${name} concert poster`}></img>
+                                    </div>
+                                  </li>
+                                )
+                            })
+                            )}
+                        </ul>
+                    </div>
+                  </section>
+                )
+              }
+
+              { myListAppear && (
+                  <section className="userListofChoices">
+                    <div className="myList wrapper">
+                      <div className="userBudgetInfo">
+                        <h2 className="userInput"> List: {userListName} </h2>
+                        <h2 className="userInput"> Budget: {userBudget} CAD</h2>
+                      </div>
+
+                          <ul className="myConcert wrapper">
+                          <h3>Selected Concerts</h3>
+                            {addedList.map( (list, index) =>{
+                              const { name, eventDate, venueCity, venueName, maxPrice, image, /* numberOfTickets */ } = list;
+                              const totalPrice = maxPrice * displayTicket[index];
+                              return(
+                                <li key={index}>
+                                  <div className="concertListInfo">
+                                    <span><p>{name}</p></span>
+                                    <p>{eventDate}</p>
+                                    <p>{venueCity}</p>
+                                    <p>{venueName}</p>
+                                    <span><p>${totalPrice.toFixed(2)}CAD</p></span>
+                                  </div>
+                                  <div className="ticketNumber">
 
 
 
-                            <button onClick={() => { handleClickPlus(index) }}>+</button>
-                            <p>{displayTicket[index]}</p>
-                            <button onClick={() => { handleClickMinus(index)}}>-</button>
-                            
-                            
+                                    <button onClick={() => { handleClickPlus(index) }}>+</button>
+                                    <p>{displayTicket[index]}</p>
+                                    <button onClick={() => { handleClickMinus(index)}}>-</button>
+                                    
+                                    
 
-                          </div>
-                          <div className="concertListImage">
-                            <img src={image} alt={`Poster of ${name}`} />
-                          </div>
-                        </li>
-                      )
-                    })}
+                                  </div>
+                                  <div className="concertListImage">
+                                    <img src={image} alt={`Poster of ${name}`} />
+                                  </div>
+                                </li>
+                              )
+                            })}
 
-                    <Link to={`${link}`}>
-                      <button onClick={handleFirebaseConnection}>
-                        Submit
-                      </button>
-                    </Link>
-                  </ul>
-              </div>
-          </section>
+                            <Link to={`${link}`}>
+                              <button onClick={handleFirebaseConnection}>
+                                Submit
+                              </button>
+                            </Link>
+                          </ul>
+                      </div>
+                  </section>
+                )
+              }
+             </>
+            }
           </motion.div>
         </AnimatePresence>
       )}

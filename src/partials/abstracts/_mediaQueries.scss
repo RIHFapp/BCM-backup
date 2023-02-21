@@ -66,18 +66,7 @@
       }
 
     //styling for the List of the Lists Component:
-    .listOfTheListsContainer {
-      ul {
-        .fairBaseList {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-      }
-      p{
-        line-height: 25px;
-        text-align: start;
-      }
-    }
+    
     .viewDetaliedList {
       .listTags{
           display: none;
@@ -98,6 +87,19 @@
       }
     }
 }
+  .listOfTheListsContainer {
+    .fairBaseList {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+    p{
+      line-height: 25px;
+      text-align: start;
+    }
+    button{
+      padding: 3%;
+    }
+  }
 }
 
 /* Landscape phone to portrait tablet */
@@ -208,6 +210,9 @@
 @media (max-width: 480px) {
   .wrapper{
     width: 78%;
+  }
+  .listOfTheListsContainer{
+    margin-top: 60px;
   }
 }
 

@@ -240,12 +240,12 @@ return(
                                                 className="fBListInView"
                                                 key={key}
                                             >
-                                            <p>{name}</p>
-                                            <p>{eventDate}</p>
-                                            <p>{venueCity}</p>
-                                            <p>{venueName}</p>
-                                            <p>{maxPrice} x {displayTicket[key]}</p>
-                                            <p>${(maxPrice * displayTicket[key]).toFixed(2)}</p>
+                                            <p><span className="moblieTags">Name: </span>{name}</p>
+                                            <p><span className="moblieTags">Date: </span>{eventDate}</p>
+                                            <p><span className="moblieTags">City: </span>{venueCity}</p>
+                                            <p><span className="moblieTags">venue: </span>{venueName}</p>
+                                            <p><span className="moblieTags">Price: </span>{maxPrice} x {displayTicket[key]}</p>
+                                            <p><span className="moblieTags">Total: </span>${(maxPrice * displayTicket[key]).toFixed(2)}</p>
                                             <div className="listButtons">
                                                 <button onClick={() => handleClickPlus(key)}> + </button>
                                                 <button onClick={() => handleClickMinus(key)}> - </button>

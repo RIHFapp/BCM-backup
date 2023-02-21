@@ -106,11 +106,11 @@ useEffect(() => {
 }, [ID]) 
 
         const priceRanges = [
-            { label: 'Concert cost $1000+', minPrice: 1001, maxPrice: Infinity, className: 'listItem3'},
-            { label: 'Concert cost below $1000', minPrice: 751, maxPrice: 1000 , className: 'listItem3' },
-            { label: 'Concert cost below $750', minPrice: 501, maxPrice: 750, className: 'listItem2' },
-            { label: 'Concert cost below $500', minPrice: 251, maxPrice: 500, className: 'listItem1' },
-            { label: 'Concert cost below $250', minPrice: 0, maxPrice: 250, className: 'listItem0' },
+            { label: 'Ticket 1000 CAD+', minPrice: 1001, maxPrice: Infinity, className: 'listItem3'},
+            { label: 'Ticket below 1000 CAD', minPrice: 751, maxPrice: 1000 , className: 'listItem3' },
+            { label: 'Ticket below 750 CAD', minPrice: 501, maxPrice: 750, className: 'listItem2' },
+            { label: 'Ticket below 500 CAD', minPrice: 251, maxPrice: 500, className: 'listItem1' },
+            { label: 'Ticket below 250 CAD', minPrice: 0, maxPrice: 250, className: 'listItem0' },
         ];
         const filteredConcerts = priceRanges.map(({label, minPrice, maxPrice}) => ({
             label,

@@ -286,7 +286,7 @@ const SearchPage = (/* {pageLoad} */) => {
                   <input 
                       className="citySearch"
                       id="city"
-                      placeholder="City..."
+                      placeholder="Cities In Canada (e.g Toronto) "
                   />
               </div>
                 <fieldset>

@@ -67,26 +67,43 @@
       }
 
     //styling for the List of the Lists Component:
-    
-    .viewDetaliedList {
-      .listTags{
-          display: none;
-      }
-      .fBListInView{
-        align-items: flex-start;
-        span{
-          display: block;
-        }
-      }
-      .fireBaseList{
-        align-items: flex-start;
-        flex-wrap: wrap;
-      }
-      p{
-        line-height: 25px;
-        text-align: start;
-      }
+}
+.viewDetaliedList {
+  padding: 3%;
+  h3{
+    font-size: 2rem;
+  }
+  li{
+    flex-direction: column;
+    span{
+      display: block;
     }
+  }
+  .listTags{
+      display: none;
+  }
+  .moblieTags{
+    display: block;
+  }
+  .fBListInView{
+    align-items: flex-start;
+    span{
+      display: block;
+    }
+  }
+  .fireBaseList{
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  p{
+    line-height: 25px;
+    text-align: start;
+  }
+  .progressBar{
+    progress{
+      width: 90%;
+    }
+  } 
 }
 .userBudgetInfo{
   h2{

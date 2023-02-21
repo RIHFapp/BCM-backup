@@ -13,8 +13,14 @@
     width: 100%;
     text-align: center;
   }
-  .concertListImage{
-    width: 225px;
+  .concertListImage,
+  .myListImage{
+    width: 85%;
+    margin: 2.5%;
+    max-width: 250px;
+    img{
+      margin: 0 auto;
+    }
   }
   //home page p1
   .home{
@@ -130,7 +136,9 @@
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 768px) {
-    
+  .userBudgetInfo{
+    flex-direction: column;
+  }
 }
 
 // Style Specific Break Point 
@@ -155,6 +163,18 @@
   
   .container{
     margin-top: 10vh;
+  }
+  .myListImage{
+    order: -1;
+  }
+  .myConcert{
+    li{
+      flex-direction: column;
+      .concertListInfo{
+        width: 100%;
+        text-align: center;
+      }
+    }
   }
   
   
@@ -224,6 +244,8 @@
 
 
 
+
+
 /* Landscape phones and down */
 @media (max-width: 480px) {
   .wrapper{
@@ -231,6 +253,14 @@
   }
   .listOfTheListsContainer{
     margin-top: 60px;
+  }
+  .viewDetaliedList{
+    .listHeading{
+      flex-direction: column;
+    }
+    .progressBar{
+      width: 100%;
+    }
   }
 }
 

@@ -2,7 +2,7 @@
 
 ## Live Link 
 https://concert-budget-masters.netlify.app/
-![Project screenshot](./readmeAssets/home.jpg)
+![Project screenshot](./readmeAssets/home.gif)
 
 ## Description
 Concert Budget Master is a web app that allows users to compare their budget and cost of conert, 

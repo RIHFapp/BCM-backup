@@ -186,6 +186,7 @@ section{
     justify-content: center;
     align-items: center;
     li{
+        width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -203,6 +204,9 @@ section{
         }
     }
 
+}
+.myListImage{
+    width: 205px;
 }
 .userBudgetInfo{
         display: flex;

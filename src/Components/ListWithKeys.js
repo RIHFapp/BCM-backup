@@ -93,7 +93,7 @@ useEffect( () => {
         checkoutTheData(nameFromList, budget, allChosenConcerts);
         setTotalTicketPrice(totalCost);
     })  
-}, [ID, renderData])
+}, [])
 
 // Price Range Info 
 const priceRanges = [
@@ -127,7 +127,7 @@ useEffect( () => {
         }, 0);
         setTotalTicketPrice(totalCost);
     }
-}, [displayTicket, renderData])
+}, [displayTicket])
 
 // Increase Ticket Number
 const handleClickPlus = (key) => {
@@ -205,7 +205,7 @@ useEffect(() => {
             }
         })
     }
-}, [ID, displayTicket, ticker])
+}, [ticker])
 
     return(
         <>  

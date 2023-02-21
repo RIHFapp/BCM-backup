@@ -11,10 +11,6 @@ import { useState, useEffect } from "react";
 import { ref, getDatabase, push } from "firebase/database"; 
 import { v4 as uuidv4 } from "uuid";
 import { Link } from "react-router-dom";
-
-import Sorry from "./Sorry";
-import Loading from "./Loading";
-import Swal from 'sweetalert2';
 import { AnimatePresence, motion } from "framer-motion";
 
 

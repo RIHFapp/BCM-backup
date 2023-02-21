@@ -254,6 +254,14 @@
   .listOfTheListsContainer{
     margin-top: 60px;
   }
+  .viewDetaliedList{
+    .listHeading{
+      flex-direction: column;
+    }
+    .progressBar{
+      width: 100%;
+    }
+  }
 }
 
 /*Smallest Phone Screens*/

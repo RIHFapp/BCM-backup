@@ -1,3 +1,4 @@
+//imported hooks
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
 
@@ -31,7 +32,7 @@ const Nav = () => {
             <li className="menu__item">Home</li>
           </Link>
           <Link to={`/searchPage`}>
-            <li className="menu__item">Create New list</li>
+            <li className="menu__item">Create New List</li>
           </Link>
           <Link to={`/listOfLists`}>
             <li className="menu__item">Browse Lists</li>

@@ -1,4 +1,6 @@
+//imported hooks
 import { Link } from "react-router-dom"
+
 const Credit = () => {
     return(
         <>

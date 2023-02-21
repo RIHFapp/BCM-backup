@@ -12,6 +12,7 @@ import ListOfTheLists from './Components/ListOfTheLists';
 import ErrorPage from './Components/ErrorPage';
 import BgOverlay from './Components/BgOverlay';
 import Credit from './Components/Credit';
+import Sorry from './Components/Sorry';
 import Footer from './Components/Footer';
 
 // import Loading from './Components/Loading';
@@ -30,7 +31,8 @@ return (
         <Route path="/viewOnlyList/:shareID" element= {  <ViewOnlyList />}/>  
         <Route path="/listWithKeys/:editID" element= {  <ListWithKeys />}/>
         <Route path="/credit" element= {  <Credit/> }/> 
-        <Route path='*' element={<ErrorPage />} />  
+        <Route path='*' element={<ErrorPage />} />
+        <Route path='/sorry' element={<Sorry />} /> 
       </Routes>
     <Nav />
     <Footer />

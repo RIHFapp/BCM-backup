@@ -6,7 +6,8 @@ import { ref, getDatabase, push } from "firebase/database";
 import { v4 as uuidv4 } from "uuid";
 // import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import ErrorPage from "./ErrorPage";
+// import ErrorPage from "./ErrorPage";
+import Sorry from "./Sorry";
 import Loading from "./Loading";
 import Swal from 'sweetalert2';
 import { AnimatePresence, motion } from "framer-motion";
@@ -231,7 +232,7 @@ const SearchPage = (/* {pageLoad} */) => {
     return(
       <>
       {/* Conditionally rendering the page based on loading or error state */}
-      {error ? <ErrorPage /> : apiLoading ? <Loading/> : pageLoad ? <Loading /> : (
+      {error ? <Sorry /> : apiLoading ? <Loading/> : pageLoad ? <Loading /> : (
       // Your component code here
         <AnimatePresence>
           <motion.div

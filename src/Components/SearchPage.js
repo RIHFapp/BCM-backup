@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
 import Loading from "./Loading";
 import Swal from 'sweetalert2';
+import { AnimatePresence, motion } from "framer-motion";
 
 
 
@@ -232,168 +233,170 @@ const SearchPage = (/* {pageLoad} */) => {
       {/* Conditionally rendering the page based on loading or error state */}
       {error ? <ErrorPage /> : apiLoading ? <Loading/> : pageLoad ? <Loading /> : (
       // Your component code here
-        <>
-        <section >
-          <div className="inputSection wrapper">
-            <h2>Create Your List!</h2>
-            <form action="submit">
-              {/* name of the list input */}
-              <label htmlFor="newName"></label>
-              <input
-                type="text"
-                id="newName"
-                placeholder="Name Of Your List" 
-                maxlength="16"
-                />
-              
-              {/* user's budget input */}
-              <label htmlFor="newBudget"></label>
-              <input
-                type="text"
-                id="newBudget"
-                placeholder="Your Budget" 
-                maxlength="7"
-                />
-              <div>
-                <button onClick={handleListConfig}>
-                  Add List Name and Budget
-                </button>
-              </div>
-            </form>
-          </div>
-        </section>
-
-        <section>
-          <form className="searchForm wrapper">
-            <p>Search for concerts by artist and your preferred city</p>
-              <div className="searchInput">
-                <label htmlFor="artist"></label>
-                <input 
-                    className="artistSearch"
-                    id="artist"
-                    placeholder="Artist..."
-                />
-
-                <label htmlFor="city"></label>
-                <input 
-                    className="citySearch"
-                    id="city"
-                    placeholder="City..."
-                />
-            </div>
-              <fieldset>
-                <label htmlFor="displayPricedConcerts">
-                  Click to show only priced concerts
-                </label>
-                
+        <AnimatePresence>
+          <motion.div>
+          <section >
+            <div className="inputSection wrapper">
+              <h2>Create Your List!</h2>
+              <form action="submit">
+                {/* name of the list input */}
+                <label htmlFor="newName"></label>
                 <input
-                  id="displayPricedConcerts"
-                  className="displayPricedConcerts"
-                  name="priceChoice"
-                  type ="checkbox"
-                  value="priced"
-                /> 
+                  type="text"
+                  id="newName"
+                  placeholder="Name Of Your List" 
+                  maxlength="16"
+                  />
+                
+                {/* user's budget input */}
+                <label htmlFor="newBudget"></label>
+                <input
+                  type="text"
+                  id="newBudget"
+                  placeholder="Your Budget" 
+                  maxlength="7"
+                  />
+                <div>
+                  <button onClick={handleListConfig}>
+                    Add List Name and Budget
+                  </button>
+                </div>
+              </form>
+            </div>
+          </section>
 
-              </fieldset>
+          <section>
+            <form className="searchForm wrapper">
+              <p>Search for concerts by artist and your preferred city</p>
+                <div className="searchInput">
+                  <label htmlFor="artist"></label>
+                  <input 
+                      className="artistSearch"
+                      id="artist"
+                      placeholder="Artist..."
+                  />
 
-              <button onClick={handleSubmitConcert}>
-                 Search 
-              </button>
-          </form>
-          <div className="searchResultContainer">
-              
-              <ul className="searchResultList wrapper">
-              <h3>Upcoming concerts...</h3>
-              {!apiLoading && (
-                    apiRes.map((concertInfo)=>{
-                      const name = concertInfo.name; 
-                      const eventDate = concertInfo.dates.start.localDate;
-                      const venueCity = concertInfo._embedded.venues[0].city.name;
-                      const venueName = concertInfo._embedded.venues[0].name;
-                      let numberOfTickets = 1;
-                      const maxPrice = concertInfo.priceRanges !== undefined
-                        ? concertInfo.priceRanges[0].max
-                        : 'To be announced';
-                    
-                      const concertImg = concertInfo.images[3].url;
-                      const key = concertInfo.id;
-                      return (
-                    
-                        <li 
-                        key = {key}
-                        className="concertResponse wrapper">
-                          { 
-                            concertInfo.priceRanges !== undefined ? ( 
-                              <button
-                                onClick={() => { handleAddConcert(name, eventDate, venueCity, venueName, maxPrice, concertImg, key, numberOfTickets)}}> + </button>
-                             ) : null
-                          }
+                  <label htmlFor="city"></label>
+                  <input 
+                      className="citySearch"
+                      id="city"
+                      placeholder="City..."
+                  />
+              </div>
+                <fieldset>
+                  <label htmlFor="displayPricedConcerts">
+                    Click to show only priced concerts
+                  </label>
+                  
+                  <input
+                    id="displayPricedConcerts"
+                    className="displayPricedConcerts"
+                    name="priceChoice"
+                    type ="checkbox"
+                    value="priced"
+                  /> 
+
+                </fieldset>
+
+                <button onClick={handleSubmitConcert}>
+                  Search 
+                </button>
+            </form>
+            <div className="searchResultContainer">
+                
+                <ul className="searchResultList wrapper">
+                <h3>Upcoming concerts...</h3>
+                {!apiLoading && (
+                      apiRes.map((concertInfo)=>{
+                        const name = concertInfo.name; 
+                        const eventDate = concertInfo.dates.start.localDate;
+                        const venueCity = concertInfo._embedded.venues[0].city.name;
+                        const venueName = concertInfo._embedded.venues[0].name;
+                        let numberOfTickets = 1;
+                        const maxPrice = concertInfo.priceRanges !== undefined
+                          ? concertInfo.priceRanges[0].max
+                          : 'To be announced';
+                      
+                        const concertImg = concertInfo.images[3].url;
+                        const key = concertInfo.id;
+                        return (
+                      
+                          <li 
+                          key = {key}
+                          className="concertResponse wrapper">
+                            { 
+                              concertInfo.priceRanges !== undefined ? ( 
+                                <button
+                                  onClick={() => { handleAddConcert(name, eventDate, venueCity, venueName, maxPrice, concertImg, key, numberOfTickets)}}> + </button>
+                              ) : null
+                            }
+                            <div className="concertListInfo">
+                              <span><p> {name} </p></span>
+                              <p> {eventDate} </p>
+                              <p> {venueCity} </p>
+                              <p> {venueName} </p>
+                              <span><p>{maxPrice}</p></span>
+                            </div>
+                            <div className="concertListImage">
+                              <img src ={concertImg} alt={`${name} concert poster`}></img>
+                            </div>
+                          </li>
+                        )
+                    })
+                    )}
+                </ul>
+            </div>
+          </section>
+
+          <section>
+            <div className="myList wrapper">
+              <div className="userBudgetInfo">
+                <h2 className="userInput"> List: {userListName} </h2>
+                <h2 className="userInput"> Budget: {userBudget} CAD</h2>
+              </div>
+
+                  <ul className="myConcert wrapper">
+                  <h3>Selected Concerts</h3>
+                    {addedList.map( (list, index) =>{
+                      const { name, eventDate, venueCity, venueName, maxPrice, image, /* numberOfTickets */ } = list;
+                      const totalPrice = maxPrice * displayTicket[index];
+                      return(
+                        <li key={index}>
                           <div className="concertListInfo">
-                            <span><p> {name} </p></span>
-                            <p> {eventDate} </p>
-                            <p> {venueCity} </p>
-                            <p> {venueName} </p>
-                            <span><p>{maxPrice}</p></span>
+                            <span><p>{name}</p></span>
+                            <p>{eventDate}</p>
+                            <p>{venueCity}</p>
+                            <p>{venueName}</p>
+                            <span><p>{totalPrice.toFixed(2)}</p></span>
+                          </div>
+                          <div className="ticketNumber">
+
+
+
+                            <button onClick={() => { handleClickPlus(index) }}>+</button>
+                            <p>{displayTicket[index]}</p>
+                            <button onClick={() => { handleClickMinus(index)}}>-</button>
+                            
+                            
+
                           </div>
                           <div className="concertListImage">
-                            <img src ={concertImg} alt={`${name} concert poster`}></img>
+                            <img src={image} alt={`Poster of ${name}`} />
                           </div>
                         </li>
                       )
-                  })
-                  )}
-              </ul>
-          </div>
-        </section>
+                    })}
 
-        <section>
-          <div className="myList wrapper">
-            <div className="userBudgetInfo">
-              <h2 className="userInput"> List: {userListName} </h2>
-              <h2 className="userInput"> Budget: {userBudget} CAD</h2>
-            </div>
-
-                <ul className="myConcert wrapper">
-                <h3>Selected Concerts</h3>
-                  {addedList.map( (list, index) =>{
-                    const { name, eventDate, venueCity, venueName, maxPrice, image, /* numberOfTickets */ } = list;
-                    const totalPrice = maxPrice * displayTicket[index];
-                    return(
-                      <li key={index}>
-                        <div className="concertListInfo">
-                          <span><p>{name}</p></span>
-                          <p>{eventDate}</p>
-                          <p>{venueCity}</p>
-                          <p>{venueName}</p>
-                          <span><p>{totalPrice.toFixed(2)}</p></span>
-                        </div>
-                        <div className="ticketNumber">
-
-
-
-                          <button onClick={() => { handleClickPlus(index) }}>+</button>
-                          <p>{displayTicket[index]}</p>
-                          <button onClick={() => { handleClickMinus(index)}}>-</button>
-                          
-                          
-
-                        </div>
-                        <div className="concertListImage">
-                          <img src={image} alt={`Poster of ${name}`} />
-                        </div>
-                      </li>
-                    )
-                  })}
-
-                  <Link to={`${link}`}>
-                    <button onClick={handleFirebaseConnection}>
-                      Submit
-                    </button>
-                  </Link>
-                </ul>
-            </div>
-        </section>
-        </>
+                    <Link to={`${link}`}>
+                      <button onClick={handleFirebaseConnection}>
+                        Submit
+                      </button>
+                    </Link>
+                  </ul>
+              </div>
+          </section>
+          </motion.div>
+        </AnimatePresence>
       )}
       </>
     )

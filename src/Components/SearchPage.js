@@ -264,8 +264,8 @@ const SearchPage = (/* {pageLoad} */) => {
                     placeholder="Your Budget" 
                     maxlength="7"
                     />
-                <div>
                 </div> 
+                <div>
                   <button onClick={handleListConfig}>
                     Add List Name and Budget
                   </button>
@@ -276,7 +276,7 @@ const SearchPage = (/* {pageLoad} */) => {
 
           <section>
             <form className="searchForm wrapper">
-              <p>Search for concerts by artist and your preferred city</p>
+              <p>Search for concerts by artist and your preferred Cities (Canada Only)</p>
                 <div className="searchInput">
                   <label htmlFor="artist"></label>
                   <input 
@@ -289,7 +289,7 @@ const SearchPage = (/* {pageLoad} */) => {
                   <input 
                       className="citySearch"
                       id="city"
-                      placeholder="Cities In Canada (e.g Toronto) "
+                      placeholder="e.g Toronto "
                   />
               </div>
                 <fieldset>

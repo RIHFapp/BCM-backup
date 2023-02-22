@@ -2,11 +2,18 @@
 
 html{
    font-size: 62.5%;
+   
 }
+
 
 body{
    // background-image: url(../asset/background.png);
    margin: 0 auto;
+   background: rgba(152,152,220,0.38);
+   background: linear-gradient(54deg,rgba(152,152,220,0.38) 0%, #97dbe8 40%, #c0c8f0 80%);
+   background: -webkit-linear-gradient(54deg,rgba(152,152,220,0.38) 0%, #97dbe8 40%, #c0c8f0 80%);
+   background: -moz-linear-gradient(54deg,rgba(152,152,220,0.38) 0%, #97dbe8 40%, #c0c8f0 80%);
+   background-size: cover;
 }
 
 .wrapper{

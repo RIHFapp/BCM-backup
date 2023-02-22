@@ -18,7 +18,6 @@ const BgOverlay = () => {
         <>
         <div className='overlay' style={{ position: 'fixed', left: position.x, top: position.y }}>
         </div>
-        <div className='blur'></div>
         </>
    )
 }

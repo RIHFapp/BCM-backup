@@ -258,7 +258,7 @@ const SearchPage = (/* {pageLoad} */) => {
                         type="text"
                         id="newName"
                         placeholder="Name Of Your List" 
-                        maxlength="16"
+                        maxLength="16"
                         />
                       
                       {/* user's budget input */}
@@ -267,7 +267,7 @@ const SearchPage = (/* {pageLoad} */) => {
                         type="text"
                         id="newBudget"
                         placeholder="Your Budget" 
-                        maxlength="7"
+                        maxLength="7"
                         />
                     </div> 
                     <div>

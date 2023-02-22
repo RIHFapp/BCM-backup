@@ -34,7 +34,10 @@ const BgOverlay = () => {
           <div className='onOff'>
             <p>backgroud spinner</p>
             <div className="switch" data-isOn={isOn} onClick={toggleSwitch}>
-              <motion.button className="handle" onClick={handleClick} data-isOn={isOn}layout transition={spring}></motion.button>
+              <motion.button className="handle" onClick={handleClick} data-isOn={isOn}layout transition={spring}>
+                <p className='on' data-isOn={isOn}>On</p>
+                <p className='off' data-isOn={isOn}>Of</p>
+                </motion.button>
             </div>
           </div>
         </>

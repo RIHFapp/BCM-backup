@@ -38,6 +38,7 @@
     top: -1%;
 }
 .switch {
+    margin: 0 auto;
     width: 8rem;
     height: 4rem;
     background-color: white;
@@ -55,6 +56,14 @@
   .onOff{
     position: absolute;
     right: 1%;
+    top: 1%;
+    p{
+        font-size: 1.2rem;
+        font-weight: 700;
+        width: 50%;
+        text-align: center;
+        margin: 0 auto;
+    }
   }
   .handle {
     width: 2rem;
@@ -72,5 +81,11 @@
     }
   } 
 .handle[data-isOn="true"]{
-    background-color: #000000;
+    background-color: $thirdColor;
+}
+.on[data-isOn="true"]{
+    display: none;
+}
+.off[data-isOn="false"]{
+    display: none;
 }

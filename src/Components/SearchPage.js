@@ -391,14 +391,10 @@ const SearchPage = (/* {pageLoad} */) => {
                                   </div>
                                   <div className="ticketNumber">
 
-
-
                                     <button onClick={() => { handleClickPlus(index) }}>+</button>
                                     <p>{displayTicket[index]}</p>
                                     <button onClick={() => { handleClickMinus(index)}}>-</button>
-                                    
-                                    
-
+              
                                   </div>
                                   <div className="myListImage">
                                     <img src={image} alt={`Poster of ${name}`} />

@@ -175,7 +175,7 @@ useEffect(() => {
                             })}
                         </ul>    
                     <Link to={`/listOfLists`}>
-                        <button id="LOLButton">back</button>
+                        <button id="LOLButton">Check Out Created Lists</button>
                     </Link>
                 </motion.section> 
             </AnimatePresence>           

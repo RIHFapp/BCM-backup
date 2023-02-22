@@ -336,7 +336,7 @@ const ListWithKeys = () => {
                             </ul>
                             <div className="botButtons">
                             <Link to={`/listOfLists`}>
-                                <button id="LOLButton">Check other Created lists</button>
+                                <button id="LOLButton">Check Out Created Lists</button>
                             </Link>
                             
                             </div>

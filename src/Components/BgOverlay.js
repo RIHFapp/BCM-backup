@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 
 const BgOverlay = () => {
    const [position, setPosition] = useState({ x: 0, y: 0 });
-   const [isSpanning, setSpanning] = useState(true);
+   const [isSpinning, setSpinning] = useState(true);
    const handleClick = () => {
-    setSpanning(!isSpanning);
+    setSpinning(!isSpinning);
   };
    const [isOn, setIsOn] = useState(false);
    const toggleSwitch = () => setIsOn(!isOn);
@@ -27,12 +27,12 @@ const BgOverlay = () => {
     }, []);
    return (
         <>
-          <div className={isSpanning ? 'isSpanning' : ''} 
+          <div className={isSpinning ? 'isSpinning' : ''} 
           style={{ position: 'fixed', left: position.x, top: position.y }}
           >
           </div>
           <div className='onOff'>
-            <p>Spinnger On/Off</p>
+            <p>Spinning On/Off</p>
             <div className="switch" data-isOn={isOn} onClick={toggleSwitch}>
               <motion.button className="handle" onClick={handleClick} data-isOn={isOn}layout transition={spring}>
                 <i className="fa-solid  fa-plug-circle-plus on" data-isOn={isOn}></i>

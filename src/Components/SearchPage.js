@@ -59,10 +59,23 @@ const SearchPage = (/* {pageLoad} */) => {
   // Renders user budget information when user clicks 
   const handleListConfig = (event) => {
     event.preventDefault();
-    setUserListName(event.target.form[0].value);
-    setBudgetInput(event.target.form[1].value);
-    // setTimeout
-    setConcertSearchAppear(true);
+    if (event.target.form[1].value === "" && event.target.form[0].value === "") {
+      Swal.fire(
+        'Empty List Name and Budget',
+        'Please set up name and budget ',
+        'warning'
+      )
+    } else if (event.target.form[1].value !== "" && event.target.form[0].value !== "") {
+      setUserListName(event.target.form[0].value);
+      setBudgetInput(event.target.form[1].value);
+      Swal.fire({
+        icon: 'success',
+        title: 'List Name and Budget are added',
+        showConfirmButton: false,
+        timer: 1500
+      });
+      setConcertSearchAppear(true);
+    }
   }
 
   // Api submit button
@@ -246,17 +259,19 @@ const SearchPage = (/* {pageLoad} */) => {
             { 
              <>
              { budgetLoad && (
-                <section className="budgetSetup">
-                  <div className="inputSection wrapper">
-                    <h2>Create Your List!</h2>
-                    <form action="submit">
-                      {/* name of the list input */}
+                <section >
+                <div className="inputSection wrapper">
+                  <h2>Lets Start Planning!</h2>
+                  <form action="submit">
+                    {/* name of the list input */}
+                    <p>Name your list and set up your budget</p>
+                    <div className="searchInput">
                       <label htmlFor="newName"></label>
                       <input
                         type="text"
                         id="newName"
                         placeholder="Name Of Your List" 
-                        maxlength="16"
+                        maxLength="16"
                         />
                       
                       {/* user's budget input */}
@@ -265,19 +280,24 @@ const SearchPage = (/* {pageLoad} */) => {
                         type="text"
                         id="newBudget"
                         placeholder="Your Budget" 
-                        maxlength="7"
+                        maxLength="7"
                         />
-                      <div>
-                        <button onClick={handleListConfig}>
-                          Add List Name and Budget
-                        </button>
-                      </div>
-                    </form>
-                  </div>
-                </section>
+                    </div> 
+                    <div>
+                      <button onClick={handleListConfig}>
+                        Create Your List
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </section>
              )}
               { concertSearchAppear && (
-                  <section className="concertSearch">
+                  <motion.section className="concertSearch"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{duration:0.2}}
+                  >
                     <form className="searchForm wrapper">
                       <p>Search for concerts by artist and your preferred city</p>
                         <div className="searchInput">
@@ -314,7 +334,7 @@ const SearchPage = (/* {pageLoad} */) => {
                           Search 
                         </button>
                     </form>
-                  </section>
+                  </motion.section>
                 )
               }
               { concertResult && (
@@ -368,7 +388,13 @@ const SearchPage = (/* {pageLoad} */) => {
               }
 
               { myListAppear && (
-                  <section className="userListofChoices">
+                  <motion.section 
+                  className="userListofChoices"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{duration:0.5}}
+                  exit={{ opacity: 0 }}
+                  >
                     <div className="myList wrapper">
                       <div className="userBudgetInfo">
                         <h2 className="userInput"> List: {userListName} </h2>
@@ -410,7 +436,7 @@ const SearchPage = (/* {pageLoad} */) => {
                             </Link>
                           </ul>
                       </div>
-                  </section>
+                  </motion.section>
                 )
               }
              </>

@@ -61,8 +61,16 @@ const SearchPage = (/* {pageLoad} */) => {
     event.preventDefault();
     setUserListName(event.target.form[0].value);
     setBudgetInput(event.target.form[1].value);
-    // setTimeout
+    if( event.target.form[1].value !== "" && event.target.form[0].value !== ""){
+      Swal.fire({
+        icon: 'success',
+        title: 'List Name and Budget are added',
+        showConfirmButton: false,
+        timer: 1500
+      })// setTimeout
     setConcertSearchAppear(true);
+    }
+    
   }
 
   // Api submit button
@@ -280,7 +288,11 @@ const SearchPage = (/* {pageLoad} */) => {
               </section>
              )}
               { concertSearchAppear && (
-                  <section className="concertSearch">
+                  <motion.section className="concertSearch"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{duration:0.2}}
+                  >
                     <form className="searchForm wrapper">
                       <p>Search for concerts by artist and your preferred city</p>
                         <div className="searchInput">
@@ -317,7 +329,7 @@ const SearchPage = (/* {pageLoad} */) => {
                           Search 
                         </button>
                     </form>
-                  </section>
+                  </motion.section>
                 )
               }
               { concertResult && (
@@ -371,7 +383,13 @@ const SearchPage = (/* {pageLoad} */) => {
               }
 
               { myListAppear && (
-                  <section className="userListofChoices">
+                  <motion.section 
+                  className="userListofChoices"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{duration:0.5}}
+                  exit={{ opacity: 0 }}
+                  >
                     <div className="myList wrapper">
                       <div className="userBudgetInfo">
                         <h2 className="userInput"> List: {userListName} </h2>
@@ -413,7 +431,7 @@ const SearchPage = (/* {pageLoad} */) => {
                             </Link>
                           </ul>
                       </div>
-                  </section>
+                  </motion.section>
                 )
               }
              </>

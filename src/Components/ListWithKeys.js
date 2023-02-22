@@ -337,8 +337,7 @@ const ListWithKeys = () => {
                             <div className="botButtons">
                             <Link to={`/listOfLists`}>
                                 <button id="LOLButton">Check Out Created Lists</button>
-                            </Link>
-                            
+                            </Link> 
                             </div>
                         </motion.section>
                     </AnimatePresence>

@@ -1,6 +1,6 @@
 @use "../abstracts/variables" as*;
 
-.overlay{
+.isSpanning{
     // position: absolute;
     // top: 20%;
     // left: 35%;
@@ -23,7 +23,7 @@
             rotate:360deg;
         }
     }
-    animation: rotate 15s infinite;
+    // animation: rotate 15s infinite;
     transform: translate(-24px,14px);
     -webkit-transform: translate(-24px,14px);
     -moz-transform: translate(-24px,14px);
@@ -36,4 +36,56 @@
     backdrop-filter: blur(25px);
     z-index: -1;
     top: -1%;
+}
+.switch {
+    margin: 0 auto;
+    width: 8rem;
+    height: 4rem;
+    background-color: white;
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 50px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .switch[data-isOn="true"] {
+    justify-content: flex-end;
+  }
+  
+  .onOff{
+    position: absolute;
+    right: 1%;
+    top: 1%;
+    p{
+        font-size: 1.2rem;
+        font-weight: 700;
+        width: 50%;
+        text-align: center;
+        margin: 0 auto;
+    }
+  }
+  .handle {
+    width: 2rem;
+    height: 2rem;
+    background-color: $secondColor;
+    box-shadow: none;
+    border-radius: 40px;
+    &:hover{
+        scale: 1;
+    }
+    &:active,
+    &:focus{
+        translate: 0;
+        box-shadow: none;
+    }
+  } 
+.handle[data-isOn="true"]{
+    background-color: $thirdColor;
+}
+.on[data-isOn="true"]{
+    display: none;
+}
+.off[data-isOn="false"]{
+    display: none;
 }

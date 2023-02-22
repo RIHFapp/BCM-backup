@@ -24,6 +24,7 @@ return (
   
   <div className="main">
     <BgOverlay />
+    <button> turn off</button>
     <div className='blur'></div>
       <Routes>
         <Route path="/" element= {  <HomePage /> }/>  

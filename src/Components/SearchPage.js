@@ -38,6 +38,7 @@ const SearchPage = (/* {pageLoad} */) => {
   const [concertSearchAppear, setConcertSearchAppear] = useState(false);
   const [concertResult, setConcertResult] = useState(false);
   const [myListAppear, setMyListAppear] = useState(false);
+  const [showSubmit, setShowSubmit] = useState (false)
 
   
 
@@ -72,7 +73,7 @@ const SearchPage = (/* {pageLoad} */) => {
         icon: 'success',
         title: 'List Name and Budget are added',
         showConfirmButton: false,
-        timer: 1500
+        timer: 800
       });
       setConcertSearchAppear(true);
     }
@@ -193,6 +194,7 @@ const SearchPage = (/* {pageLoad} */) => {
       })
       push(dbRef, keyRef);
       setLink(`/listWithKeys/:${eK}`)
+      setShowSubmit(true)
     }
     
   };
@@ -430,9 +432,11 @@ const SearchPage = (/* {pageLoad} */) => {
                             })}
 
                             <Link to={`${link}`}>
-                              <button onClick={handleFirebaseConnection}>
-                                Submit
-                              </button>
+                            {showSubmit ? (
+                                <button onClick={handleFirebaseConnection}>Submit</button>
+                              ) : (
+                                <button onClick={handleFirebaseConnection}>Save</button>
+                              )}
                             </Link>
                           </ul>
                       </div>

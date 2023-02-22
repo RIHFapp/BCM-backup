@@ -246,11 +246,13 @@ const SearchPage = (/* {pageLoad} */) => {
             { 
              <>
              { budgetLoad && (
-                <section className="budgetSetup">
-                  <div className="inputSection wrapper">
-                    <h2>Create Your List!</h2>
-                    <form action="submit">
-                      {/* name of the list input */}
+                <section >
+                <div className="inputSection wrapper">
+                  <h2>Lets Start Planning!</h2>
+                  <form action="submit">
+                    {/* name of the list input */}
+                    <p>Name your list and set up your budget</p>
+                    <div className="searchInput">
                       <label htmlFor="newName"></label>
                       <input
                         type="text"
@@ -267,14 +269,15 @@ const SearchPage = (/* {pageLoad} */) => {
                         placeholder="Your Budget" 
                         maxlength="7"
                         />
-                      <div>
-                        <button onClick={handleListConfig}>
-                          Add List Name and Budget
-                        </button>
-                      </div>
-                    </form>
-                  </div>
-                </section>
+                    </div> 
+                    <div>
+                      <button onClick={handleListConfig}>
+                        Create Your List
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </section>
              )}
               { concertSearchAppear && (
                   <section className="concertSearch">

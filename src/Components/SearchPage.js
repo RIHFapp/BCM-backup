@@ -59,18 +59,23 @@ const SearchPage = (/* {pageLoad} */) => {
   // Renders user budget information when user clicks 
   const handleListConfig = (event) => {
     event.preventDefault();
-    setUserListName(event.target.form[0].value);
-    setBudgetInput(event.target.form[1].value);
-    if( event.target.form[1].value !== "" && event.target.form[0].value !== ""){
+    if (event.target.form[1].value === "" && event.target.form[0].value === "") {
+      Swal.fire(
+        'Empty List Name and Budget',
+        'Please set up name and budget ',
+        'warning'
+      )
+    } else if (event.target.form[1].value !== "" && event.target.form[0].value !== "") {
+      setUserListName(event.target.form[0].value);
+      setBudgetInput(event.target.form[1].value);
       Swal.fire({
         icon: 'success',
         title: 'List Name and Budget are added',
         showConfirmButton: false,
         timer: 1500
-      })// setTimeout
-    setConcertSearchAppear(true);
+      });
+      setConcertSearchAppear(true);
     }
-    
   }
 
   // Api submit button

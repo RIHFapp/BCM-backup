@@ -3,7 +3,7 @@ import firebase from "../firebase";
 import Loading from "./Loading";
 
 //imported hooks
-import { getDatabase, ref, onValue, set, get } from "firebase/database";
+import { getDatabase, ref, set, get } from "firebase/database";
 import { useEffect, useState, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
@@ -19,7 +19,7 @@ const ListWithKeys = () => {
     const [pageLoad, setPageLoad] = useState(true);
     const [displayTicket, setDisplayTicket] = useState();
     const [ticker, setTicker] = useState(0);
-
+    const [viewTicket, setViewTicket] = useState([]);
 
 
     const { editID } = useParams();
@@ -50,6 +50,7 @@ const ListWithKeys = () => {
         setNameOfTheList(name);
         setBudgetValue(budget);
         setListOfConcerts(concerts);
+        setViewTicket(concerts);
     }
 
     // Setting the lenght of the displayed ticket array  
@@ -71,7 +72,7 @@ const ListWithKeys = () => {
             const database = getDatabase(firebase);
             const dbRef = ref(database);
 
-            onValue(dbRef, (response) => {
+            get(dbRef).then((response) => {
 
                 const allTheLists = response.val();
                 const newState = [];
@@ -104,8 +105,13 @@ const ListWithKeys = () => {
                     return acc + costWithCounts;
                 }, 0);
 
+                
                 checkoutTheData(nameFromList, budget, allChosenConcerts);
                 setTotalTicketPrice(totalCost);
+                
+
+            }).catch((error) => {
+                console.log(error)
             })
 
         } else if (displayTicket !== undefined) {
@@ -115,7 +121,7 @@ const ListWithKeys = () => {
             const database = getDatabase(firebase);
             const dbRef = ref(database);
 
-            onValue(dbRef, (response) => {
+            get(dbRef).then((response) => {
 
                 const allTheLists = response.val();
                 const newState = [];
@@ -128,7 +134,6 @@ const ListWithKeys = () => {
                         return null;
                     } else {
                         const currentEditList = event;
-                        // setRenderData(renderData.splice(0, 1, currentEditList.budgetConcertContent));
                         return currentEditList;
                     }
                 })
@@ -143,9 +148,15 @@ const ListWithKeys = () => {
                     return acc + costWithCounts;
                 }, 0);
 
-
+                
                 setTotalTicketPrice(totalCost);
+                
+
+            }).catch((error) => {
+                console.log(error)
             })
+
+
         }
     }, [displayTicket])
 
@@ -160,40 +171,54 @@ const ListWithKeys = () => {
         { label: 'Tickets below 250 CAD', minPrice: 0, maxPrice: 250, className: 'listItem0' },
     ];
 
+
     // Filtered Concert 
     const filteredConcerts = priceRanges.map(({ label, minPrice, maxPrice }) => (
         {
             label,
             concerts: listOfConcerts.filter(concert => concert.maxPrice >= minPrice && concert.maxPrice <= maxPrice)
         }
-    ));
+    ))
 
 
     // Increase Ticket Number
-    const handleClickPlus = (key) => {
-        const plusTicket = displayTicket[key];
-        const currentTicket = plusTicket + 1;
-        displayTicket[key] = currentTicket;
+    const handleClickPlus = (maxPrice) => {
+        for(let i = 0; i < viewTicket.length; i++){
 
-        const newItems = [...displayTicket]; // make a copy of the current array state
-        newItems.splice(`${key}`, 1, displayTicket[key])
+            if (maxPrice === viewTicket[i].maxPrice){
 
-        return setDisplayTicket(newItems);
+                const plusTicketDisplay = displayTicket[i];
+                const currentTicketDisplay = plusTicketDisplay + 1;
+                displayTicket[i] = currentTicketDisplay;
+
+                viewTicket[i].numberOfTickets = displayTicket[i];
+                const newItemsDisplay = [...displayTicket]; // make a copy of the current array state
+                newItemsDisplay.splice(`${i}`, 1, displayTicket[i])
+
+            return setDisplayTicket(newItemsDisplay);
+            }
+        }
     }
     //
     // Decrease Ticket Number 
-    const handleClickMinus = (key) => {
-        if (displayTicket[key] === 0) {
-            return;
-        } else {
-            const minusTicket = displayTicket[key];
-            const currentTicket = minusTicket - 1;
-            displayTicket[key] = currentTicket;
+    const handleClickMinus = (maxPrice) => {
+        for (let i = 0; i < viewTicket.length; i++) {
+            if (maxPrice === viewTicket[i].maxPrice){
 
-            const newItems = [...displayTicket]; // make a copy of the current array state
-            newItems.splice(`${key}`, 1, displayTicket[key])
+                if (viewTicket[i].numberOfTickets === 0){
+                    return;
+                } else {
+                    const minusTicketDisplay = displayTicket[i];
+                    const currentTicketDisplay = minusTicketDisplay - 1;
+                    displayTicket[i] = currentTicketDisplay;
 
-            return setDisplayTicket(newItems);
+                    viewTicket[i].numberOfTickets = displayTicket[i];
+                    const newItemsDisplay = [...displayTicket]; // make a copy of the current array state
+                    newItemsDisplay.splice(`${i}`, 1, displayTicket[i])
+
+                    return setDisplayTicket(newItemsDisplay);
+                }
+            }
         }
     }
 
@@ -204,6 +229,16 @@ const ListWithKeys = () => {
         const z = x + y;
         setTicker(z);
     }
+
+    
+    const displayingViewTicket = (maxPrice) => {
+        for (let i = 0; i < viewTicket.length; i++){
+            if (maxPrice === viewTicket[i].maxPrice){
+                return viewTicket[i].numberOfTickets
+            }
+        }
+    }
+    // console.log(viewTicket);
 
     // Help submit information based on ticker change
     useEffect(() => {
@@ -238,6 +273,8 @@ const ListWithKeys = () => {
                         }
                     });
 
+                    
+
                     if (recentList.length > 0) {
                         for (let i = 0; i < recentList[0].budgetConcertContent.length; i++) {
                             recentList[0].budgetConcertContent[i].numberOfTickets = displayTicket[i]
@@ -263,6 +300,9 @@ const ListWithKeys = () => {
             setTicker(0);
         }
     }, [ticker, displayTicket])
+
+
+
 
     return (
         <>
@@ -298,13 +338,14 @@ const ListWithKeys = () => {
                                     </div>
                                 </li>
                                 {/* Filtering Chosen Ticket Array to render them on the page */}
-                                {filteredConcerts.map(({ label, concerts }) => {
+                                {filteredConcerts.map(({ label, concerts }, index) => {
                                     if (concerts.length > 0) {
                                         return (
+
                                             <div key={label} className={priceRanges.find(range => range.label === label).className}>
                                                 <h3>{label}</h3>
                                                 {/* Mapping through details of the concert */}
-                                                {concerts.map(({ name, eventDate, venueCity, venueName, maxPrice }, key) => (
+                                                {concerts.map(({ name, eventDate, venueCity, venueName, maxPrice, numberOfTickets }, key) => (
                                                     <motion.li
                                                         initial={{ opacity: 0, scale: 0.9 }}
                                                         animate={{ opacity: 1, scale: 1 }}
@@ -316,12 +357,12 @@ const ListWithKeys = () => {
                                                         <p>{eventDate}</p>
                                                         <p>{venueCity}</p>
                                                         <p>{venueName}</p>
-                                                        <p>{maxPrice} CAD x {displayTicket[key]}</p>
-                                                        <p>{`${(maxPrice * displayTicket[key]).toFixed(2)} CAD`}</p>
+                                                        <p>{maxPrice} CAD x {displayingViewTicket(maxPrice)}</p>
+                                                        <p>{`${(maxPrice * displayingViewTicket(maxPrice)).toFixed(2)} CAD`}</p>
 
                                                         <div className="listButtons">
-                                                            <button onClick={() => handleClickPlus(key)}> + </button>
-                                                            <button onClick={() => handleClickMinus(key)}> - </button>
+                                                            <button onClick={() => handleClickPlus(maxPrice)}> + </button>
+                                                            <button onClick={() => handleClickMinus(maxPrice)}> - </button>
                                                         </div>
                                                     </motion.li>
                                                 ))}

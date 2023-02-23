@@ -369,7 +369,6 @@ const ListWithKeys = () => {
                                                         </div>
                                                     </motion.li>
                                                 ))}
-                                                <button onClick={handleClickSave}>Save Changes</button>
                                             </div>
                                         )
                                     } else {
@@ -381,6 +380,7 @@ const ListWithKeys = () => {
                             <div className="botButtons">
                             <Link to={`/listOfLists`}>
                                 <button id="LOLButton">Check Out Created Lists</button>
+                                <button onClick={handleClickSave}>Save All Changes</button>
                             </Link> 
                             </div>
                         </motion.section>

@@ -375,13 +375,13 @@ const ListWithKeys = () => {
                                         return null;
                                     }
                                 })}
-
+                            <button onClick={handleClickSave}>Save Changes</button>
                             </ul>
                             <div className="botButtons">
                             <Link to={`/listOfLists`}>
                                 <button id="LOLButton">Check Out Created Lists</button>
-                                <button onClick={handleClickSave}>Save All Changes</button>
                             </Link> 
+                                
                             </div>
                         </motion.section>
                     </AnimatePresence>

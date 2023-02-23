@@ -185,9 +185,7 @@
       }
     }
   }
-  
-  
-  
+    
   // Search Page 
     // Budget Creation 
     .budgetInput{
@@ -202,14 +200,21 @@
               flex-direction: column;
               align-items: center;
               width: 100%;
-              input::placeholder{
-                text-align: center;
-              }
-              input{
-                width: 90%;
-                padding: 1% 3%;
-              }
+              
+              
             }
+      }
+    }
+    .searchInput{
+      flex-direction: column;
+      gap: 5px;
+      width: 75%;
+      input{
+        width: 100%;
+        padding: 1% 3%;
+      }
+      input::placeholder{
+        text-align: center;
       }
     }
     // Concert Search Form 
@@ -254,9 +259,19 @@
         font-size: 2.8rem;
       }
     }
+    .botButtons{
+      a{
+        margin: 0;
+      }
+    }
+    .footerStyle{
+      padding: 5px;
+    }
+    .viewDetaliedList .listButtons{
+      width: 100%;
+      margin-top: 10px;
+    }
 }
-
-
 
 
 

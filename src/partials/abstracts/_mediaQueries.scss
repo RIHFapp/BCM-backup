@@ -145,6 +145,18 @@
   .onOff{
     display: none;
   }
+  .credit{
+    width: auto;
+    height: auto;
+  }
+  .teamInfo{
+    a{
+      font-size: 1.6rem;
+    }
+    p{
+      font-size: 1.2rem;
+    }
+  }
 }
 
 // Style Specific Break Point 
@@ -275,6 +287,7 @@
       width: 100%;
       margin-top: 10px;
     }
+    
 }
 
 
@@ -283,7 +296,7 @@
 @media (max-width: 480px) {
   .wrapper{
     width: 78%;
-  }frt
+  }
   // .listOfTheListsContainer{
   //   margin-top: 60px;
   // }
@@ -292,6 +305,11 @@
       flex-direction: column;
     }
     .progressBar{
+      width: 100%;
+    }
+  }
+  .team{
+    .teamPic{
       width: 100%;
     }
   }

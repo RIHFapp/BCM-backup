@@ -324,7 +324,7 @@ const SearchPage = (/* {pageLoad} */) => {
                       </div>
                         <fieldset>
                           <label htmlFor="displayPricedConcerts">
-                            Click to show only priced concerts
+                          Click to hide concerts with prices to be announced
                           </label>
                           
                           <input

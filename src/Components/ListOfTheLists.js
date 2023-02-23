@@ -94,7 +94,7 @@ useEffect( () => {
                   <h2>View and Edit your list !</h2>     
                      
                      <ul> {
-                        lists.map((list, key) => {
+                        lists.slice().reverse().map((list, key) => {
                            const { listname, userBudget, shareKey, editKey ,ListCreated} = list;
 
                            const date = new Date(ListCreated)

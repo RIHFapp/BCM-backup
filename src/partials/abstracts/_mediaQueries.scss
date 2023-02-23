@@ -79,6 +79,9 @@
 .viewDetaliedList {
   padding: 3%;
   h3{
+    font-size: 2.5rem;
+  }
+  h3{
     font-size: 2rem;
   }
   li{
@@ -139,13 +142,16 @@
   .userBudgetInfo{
     flex-direction: column;
   }
+  .onOff{
+    display: none;
+  }
 }
 
 // Style Specific Break Point 
 @media(max-width: 550px) {
   // General 
-  h2{
-    font-size: 3.5rem
+  h1{
+    font-size: 3.5rem;
   }
   h3{
     font-size: 1.9rem;
@@ -154,13 +160,16 @@
   //homepage p1
   .home{
     h1{
+      font-size: 3.5rem;
       margin-top: 10%;
     }
     .wrapper{
       width: auto;
+      h2{
+        font-size: 2.5rem;
+      }
     }
   }
-  
   .container{
     margin-top: 10vh;
   }
@@ -240,6 +249,11 @@
   }
     }
 
+    .viewDetaliedList{
+      h2{
+        font-size: 2.8rem;
+      }
+    }
 }
 
 
@@ -251,9 +265,9 @@
   .wrapper{
     width: 78%;
   }
-  .listOfTheListsContainer{
-    margin-top: 60px;
-  }
+  // .listOfTheListsContainer{
+  //   margin-top: 60px;
+  // }
   .viewDetaliedList{
     .listHeading{
       flex-direction: column;

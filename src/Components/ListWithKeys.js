@@ -164,11 +164,11 @@ const ListWithKeys = () => {
 
     // Price Range Info 
     const priceRanges = [
-        { label: 'Ticket 1000+ CAD', minPrice: 1001, maxPrice: Infinity, className: 'listItem3' },
-        { label: 'Ticket below 1000 CAD', minPrice: 751, maxPrice: 1000, className: 'listItem3' },
-        { label: 'Ticket below 750 CAD', minPrice: 501, maxPrice: 750, className: 'listItem2' },
-        { label: 'Ticket below 500 CAD', minPrice: 251, maxPrice: 500, className: 'listItem1' },
-        { label: 'Ticket below 250 CAD', minPrice: 0, maxPrice: 250, className: 'listItem0' },
+        { label: 'Tickets 1000+ CAD', minPrice: 1001, maxPrice: Infinity, className: 'listItem3' },
+        { label: 'Tickets below 1000 CAD', minPrice: 751, maxPrice: 1000, className: 'listItem3' },
+        { label: 'Tickets below 750 CAD', minPrice: 501, maxPrice: 750, className: 'listItem2' },
+        { label: 'Tickets below 500 CAD', minPrice: 251, maxPrice: 500, className: 'listItem1' },
+        { label: 'Tickets below 250 CAD', minPrice: 0, maxPrice: 250, className: 'listItem0' },
     ];
 
 
@@ -309,6 +309,9 @@ const ListWithKeys = () => {
             {pageLoad ? <Loading /> : (
                 <>
                     <AnimatePresence>
+                        <div className="wrapper">
+                        <h1>Edit your list!</h1>    
+                        </div>
                         <motion.section
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -316,7 +319,7 @@ const ListWithKeys = () => {
                             exit={{ opacity: 0 }}
                             className="wrapper viewDetaliedList"
                         >
-                            <h2>{nameOfTheList}</h2>
+                            <h2>List:{nameOfTheList}</h2>
                             <div className="listHeading">
                                 <h3>Concert {totalTicketPrice.toFixed(2)} CAD </h3>
                                 <div className="progressBar">
@@ -366,6 +369,7 @@ const ListWithKeys = () => {
                                                         </div>
                                                     </motion.li>
                                                 ))}
+                                                <button onClick={handleClickSave}>Save Changes</button>
                                             </div>
                                         )
                                     } else {
@@ -374,10 +378,11 @@ const ListWithKeys = () => {
                                 })}
 
                             </ul>
+                            <div className="botButtons">
                             <Link to={`/listOfLists`}>
-                                <button id="LOLButton">back</button>
-                            </Link>
-                            <button onClick={handleClickSave}>Save Changes</button>
+                                <button id="LOLButton">Check Out Created Lists</button>
+                            </Link> 
+                            </div>
                         </motion.section>
                     </AnimatePresence>
                 </>

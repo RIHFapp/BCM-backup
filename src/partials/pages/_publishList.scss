@@ -34,7 +34,10 @@
 
 
 .viewDetaliedList {
-    .listHeading{
+  h2{
+    font-size: 3.25rem;
+  }  
+  .listHeading{
         margin-top: 3%;
         display: flex;
         justify-content: center;
@@ -53,8 +56,6 @@
             width: 150px;
           }
     }
-
-  margin-top: 4rem;
   background: rgba(255, 255, 255, 0.342);
   border-radius: 25px;
   padding: 1%;
@@ -171,4 +172,6 @@
     }
   }
 }
-
+.botButtons{
+  display: flex;
+}

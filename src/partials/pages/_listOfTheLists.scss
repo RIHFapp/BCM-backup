@@ -1,12 +1,13 @@
 @use "../abstracts/variables" as *;
 
 .listOfTheListsContainer {
-  margin-top: 5%;
+  margin-top: 1.5%;
   background: rgba(255, 255, 255, 0.342);
   border-radius: 25px;
   padding: 1.5%;
   h2{
     margin: 1%;
+    font-size: 2.5rem;
   }
   .listItem1 {
     background-color: $firstColor;

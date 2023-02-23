@@ -76,6 +76,8 @@ const SearchPage = (/* {pageLoad} */) => {
         timer: 800
       });
       setConcertSearchAppear(true);
+      setBudgetLoad(false)
+
     }
   }
 
@@ -194,7 +196,7 @@ const SearchPage = (/* {pageLoad} */) => {
       })
       push(dbRef, keyRef);
       setLink(`/listWithKeys/:${eK}`)
-      setShowSubmit(true)
+      setShowSubmit(true);
     }
     
   };
@@ -263,7 +265,7 @@ const SearchPage = (/* {pageLoad} */) => {
              { budgetLoad && (
                 <section >
                 <div className="inputSection wrapper">
-                  <h2>Lets Start Planning!</h2>
+                  <h2>Step 1 ... ! Creat Your Budget list!</h2>
                   <form action="submit">
                     {/* name of the list input */}
                     <p>Name your list and set up your budget</p>
@@ -300,6 +302,9 @@ const SearchPage = (/* {pageLoad} */) => {
                   animate={{ opacity: 1 }}
                   transition={{duration:0.2}}
                   >
+                    <div className="wrapper">
+                    <h2>Step 2 ...! Search and Add concerts !</h2>
+                    </div>
                     <form className="searchForm wrapper">
                       <p>Search for concerts by artist and your preferred city</p>
                         <div className="searchInput">
@@ -397,6 +402,9 @@ const SearchPage = (/* {pageLoad} */) => {
                   transition={{duration:0.5}}
                   exit={{ opacity: 0 }}
                   >
+                      <div className="wrapper">
+                      <h2>step 3 ..! Edit your list and submit!</h2>
+                      </div>
                     <div className="myList wrapper">
                       <div className="userBudgetInfo">
                         <h2 className="userInput"> List: {userListName} </h2>
@@ -404,7 +412,7 @@ const SearchPage = (/* {pageLoad} */) => {
                       </div>
 
                           <ul className="myConcert wrapper">
-                          <h3>Selected Concerts</h3>
+                          <h3>Step 3! Select and add Concerts to your list !</h3>
                             {addedList.map( (list, index) =>{
                               const { name, eventDate, venueCity, venueName, maxPrice, image, /* numberOfTickets */ } = list;
                               const totalPrice = maxPrice * displayTicket[index];
@@ -435,7 +443,7 @@ const SearchPage = (/* {pageLoad} */) => {
                             {showSubmit ? (
                                 <button onClick={handleFirebaseConnection}>Submit</button>
                               ) : (
-                                <button onClick={handleFirebaseConnection}>Save</button>
+                                <button onClick={handleFirebaseConnection}>Save Your List</button>
                               )}
                             </Link>
                           </ul>

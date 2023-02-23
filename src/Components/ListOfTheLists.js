@@ -82,13 +82,16 @@ useEffect( () => {
                (
                   <>
                   <AnimatePresence>
+                  <div className="wrapper">
+                  <h1> List of created list</h1> 
+                  </div>
                   <motion.section className="wrapper listOfTheListsContainer"
                      initial={{ opacity: 0 }}
                      animate={{ opacity: 1 }}
                      transition={{duration:0.5}}
                      exit={{ opacity: 0 }}
                   >
-                     <h2> List of created list</h2> 
+                  <h2>View and Edit your list !</h2>     
                      
                      <ul> {
                         lists.map((list, key) => {

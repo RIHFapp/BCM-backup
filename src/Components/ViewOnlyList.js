@@ -115,6 +115,9 @@ useEffect(() => {
         {pageLoad ? <Loading /> : (
             <>
                 <AnimatePresence>
+                    <div className="wrapper">
+                    <h1>Share Your list!</h1>
+                    </div>
                     <motion.section 
                     className="wrapper viewDetaliedList"
                     initial={{ opacity: 0 }}
@@ -122,7 +125,7 @@ useEffect(() => {
                      transition={{duration:0.5}}
                      exit={{ opacity: 0 }}
                     >     
-                        <h2>{nameOfTheList}</h2>
+                        <h2>List{nameOfTheList}</h2>
                         
                         <div className="listHeading">
                             <h3>Total Cost {totalTicketPrice.toFixed(2)} CAD </h3>

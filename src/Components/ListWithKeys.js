@@ -309,6 +309,9 @@ const ListWithKeys = () => {
             {pageLoad ? <Loading /> : (
                 <>
                     <AnimatePresence>
+                        <div className="wrapper">
+                        <h1>Edit your list!</h1>    
+                        </div>
                         <motion.section
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -316,7 +319,7 @@ const ListWithKeys = () => {
                             exit={{ opacity: 0 }}
                             className="wrapper viewDetaliedList"
                         >
-                            <h2>{nameOfTheList}</h2>
+                            <h2>List:{nameOfTheList}</h2>
                             <div className="listHeading">
                                 <h3>Concert {totalTicketPrice.toFixed(2)} CAD </h3>
                                 <div className="progressBar">

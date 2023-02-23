@@ -33,10 +33,10 @@ const BgOverlay = () => {
           </div>
           <div className='onOff'>
             <p>Spinner On/Off</p>
-            <div className="switch" data-isOn={isOn} onClick={toggleSwitch}>
-              <motion.button className="handle" onClick={handleClick} data-isOn={isOn}layout transition={spring}>
-                <i className="fa-solid  fa-plug-circle-plus on" data-isOn={isOn}></i>
-                <i className="fa-solid fa-plug-circle-xmark off" data-isOn={isOn}></i>
+            <div className="switch" data-ison={isOn} onClick={toggleSwitch}>
+              <motion.button className="handle" onClick={handleClick} data-ison={isOn}layout transition={spring}>
+                <i className="fa-solid  fa-plug-circle-plus on" data-ison={isOn}></i>
+                <i className="fa-solid fa-plug-circle-xmark off" data-ison={isOn}></i>
                 </motion.button>
             </div>
           </div>

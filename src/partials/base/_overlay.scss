@@ -81,12 +81,12 @@
         box-shadow: none;
     }
   } 
-.handle[data-isOn="true"]{
+.handle[data-ison="true"]{
     background-color: $thirdColor;
 }
-.on[data-isOn="true"]{
+.on[data-ison="true"]{
     display: none;
 }
-.off[data-isOn="false"]{
+.off[data-ison="false"]{
     display: none;
 }

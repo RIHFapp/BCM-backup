@@ -323,7 +323,7 @@ const SearchPage = (/* {pageLoad} */) => {
                           />
                       </div>
                         <fieldset>
-                          <div>
+                          <div className="label">
                           <label htmlFor="displayPricedConcerts">
                           Click to hide concerts with prices to be announced
                           </label>

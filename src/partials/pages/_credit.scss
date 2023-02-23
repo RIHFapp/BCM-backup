@@ -5,62 +5,58 @@
     margin:0 auto;
     width: 700px;
     height: 700px;
-    display: grid;
+    display: flex;
     overflow: hidden;
     list-style: none;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
     gap: 15px;
     padding: 15px;
     // background: rgba(255, 255, 255, 0.2);
     border-radius: 50px;
+    flex-wrap: wrap;
   }
   
 .team {
     border-radius: 100%;
-    margin: 5% auto;
-    
-    img{
-        width: 90%;
-        border-radius: 50%;
-        transition: transform 20s ease-out;
-    }
-    
-    &:hover img {
-        transform: rotate(360deg);
+    flex-wrap: wrap;
+    display: flex;
+    .teamPic{
+        width: 46%;
+        margin: 2%;
+        
     }
 
 }
-
-.creditInfo {
-    position: absolute;
-    margin:0 auto;
-    width: 700px;
-    height: 700px;
-    display: grid;
-    overflow: hidden;
-    list-style: none;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 15px;
-    padding: 15px;
-    // background: rgba(255, 255, 255, 0.2);
-    border-radius: 50px;
-  }
-  
-.teamInfo {
-    border-radius: 100%;
-    margin: 5% auto;
+.t1,
+.t2,
+.t3,
+.t4{
+    position: relative;
+}
+.m1,
+.m2,
+.m3,
+.m4{
+    border-radius: 50%;
+    transition: transform 20s ease-out;
     
-    img{
-        width: 90%;
-        border-radius: 50%;
-        // transition: transform 20s ease-out;
+    &:hover {
+        transform: rotate(360deg);
     }
-    
-    // &:hover img {
-    //     // transform: rotate(360deg);
-    // }
+}
+
+ .teamInfo {
+    width: 90%;
+    height: 90%;
+    margin: 0 auto;
+    background-color: #fff;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
 }
 

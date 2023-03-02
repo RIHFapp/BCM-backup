@@ -76,6 +76,7 @@ useEffect( () => {
 
    }, [])
 
+   console.log(lists);
       return (
          <div className="all">
             {pageLoad ? <Loading /> : 
@@ -94,7 +95,8 @@ useEffect( () => {
                   <h2>View and Edit your list !</h2>     
                      
                      <ul> {
-                        lists.slice().reverse().map((list, key) => {
+                        lists.map((list, key) => {
+                           //.slice().reverse()
                            const { listname, userBudget, shareKey, editKey ,ListCreated} = list;
 
                            const date = new Date(ListCreated)

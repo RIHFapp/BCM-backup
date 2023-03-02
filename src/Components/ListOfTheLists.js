@@ -76,7 +76,6 @@ useEffect( () => {
 
    }, [])
 
-   console.log(lists);
       return (
          <div className="all">
             {pageLoad ? <Loading /> : 

@@ -265,12 +265,12 @@ const SearchPage = (/* {pageLoad} */) => {
              { budgetLoad && (
                 <section >
                 <div className="inputSection wrapper">
-                  <h2>Step 1 ... ! Creat Your Budget list!</h2>
+                  <h2>Step 1. Create your budget list!</h2>
                   <form action="submit">
                     {/* name of the list input */}
                     <p>Name your list and set up your budget</p>
                     <div className="searchInput">
-                      <label htmlFor="newName"></label>
+                      <label className= "visually-hidden" htmlFor="newName">Add name of your list:</label>
                       <input
                         type="text"
                         id="newName"
@@ -279,7 +279,7 @@ const SearchPage = (/* {pageLoad} */) => {
                         />
                       
                       {/* user's budget input */}
-                      <label htmlFor="newBudget"></label>
+                      <label className= "visually-hidden" htmlFor="newBudget">What's your budget: </label>
                       <input
                         type="text"
                         id="newBudget"

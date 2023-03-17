@@ -20,7 +20,7 @@ const Nav = () => {
   }, []);
 
   return (
-    <>
+    <nav>
       <div className="hamburger-menu">
         <input id="menu__toggle" type="checkbox" ref={checkboxRef} />
         <label className="menu__btn" htmlFor="menu__toggle">
@@ -42,7 +42,7 @@ const Nav = () => {
           </Link>
         </ul>
       </div>
-    </>
+    </nav>
   );
 };
 

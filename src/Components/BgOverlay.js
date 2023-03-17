@@ -6,16 +6,16 @@ import { motion } from 'framer-motion';
 const BgOverlay = () => {
    const [position, setPosition] = useState({ x: 0, y: 0 });
    const [isSpinning, setSpinning] = useState(true);
-   const handleClick = () => {
-    setSpinning(!isSpinning);
-  };
-   const [isOn, setIsOn] = useState(false);
-   const toggleSwitch = () => setIsOn(!isOn);
-   const spring = {
-    type: "spring",
-    stiffness: 700,
-    damping: 30
-  };
+  //  const handleClick = () => {
+  //   setSpinning(!isSpinning);
+  // };
+  //  const [isOn, setIsOn] = useState(false);
+  //  const toggleSwitch = () => setIsOn(!isOn);
+  //  const spring = {
+  //   type: "spring",
+  //   stiffness: 700,
+  //   damping: 30
+  // };
    useEffect(() => {
       const updatePosition = e => {
         setTimeout(() => {
@@ -31,7 +31,7 @@ const BgOverlay = () => {
           style={{ position: 'fixed', left: position.x, top: position.y }}
           >
           </div>
-          <div className='onOff'>
+          {/* <div className='onOff'>
             <p>Spinner On/Off</p>
             <div className="switch" data-ison={isOn} onClick={toggleSwitch}>
               <motion.button className="handle" onClick={handleClick} data-ison={isOn}layout transition={spring}>
@@ -39,7 +39,7 @@ const BgOverlay = () => {
                 <i className="fa-solid fa-plug-circle-xmark off" data-ison={isOn}></i>
                 </motion.button>
             </div>
-          </div>
+          </div> */}
         </>
    )
 }

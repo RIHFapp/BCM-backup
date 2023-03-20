@@ -35,22 +35,23 @@ useEffect( () => {
    const dbRef = ref(database);
 
    onValue(dbRef, (response) => {
-
+      console.log(response.val());
       const listsData = response.val();
       const newState = [];
 
       for (let key in listsData) {
+         console.log(listsData[key]);
          newState.push(listsData[key]);
       }
       setLists(newState);
       //getting total cost amount for each budget
-      let totalListPrice = 0;
       const maxPriceArray = [];
 
       for (let i = 0; i  < newState.length; i++) {
+          let totalListPrice = 0;
          for (let a = 0; a < newState[i].budgetConcertContent.length; a++){
-
-            totalListPrice = newState[i].budgetConcertContent[a].maxPrice + totalListPrice
+            
+            totalListPrice += newState[i].budgetConcertContent[a].maxPrice;
             totalListPrice = totalListPrice * 100;
             totalListPrice = Math.round(totalListPrice);
             totalListPrice = totalListPrice/100;
@@ -71,7 +72,6 @@ useEffect( () => {
       }
 
       setConcertCount(numberOfConcertsArray);
-
    })
 
    }, [])
